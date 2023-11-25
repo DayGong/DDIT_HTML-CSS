@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+proc1 = () => {
+	// window.open("랜덤객체.html");
+	// window.open("../1113/경과시간구하기.html", "경과시간", 
+	//		"width=200 height=300 top=200 left=200");
+	
+	window.open("winsub.html", "자식창", "width=500 height=300");
+}
+</script>
+</head>
+<body>
+
+<div>
+	새로운 창 열기<br>
+	window.open()<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+</body>
+</html>

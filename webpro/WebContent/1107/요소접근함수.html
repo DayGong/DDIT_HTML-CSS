@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1() {
+	// id=x를 검색-값 가져오기
+	let xvalue = document.getElementById('x').value;
+		
+	// id=y를 검색-값 가져오기
+	let yvalue = document.getElementById('y').value;
+	
+	// 계산
+	let res =  parseInt(xvalue) + parseInt(yvalue);
+		
+	// id=result를 검색 출력
+	// input은 value로 값 불러오기, 값 출력하기
+	document.getElementById('result').value = res;
+	
+	// id=result1를 검색 출력
+	/* let vvres = document.getElementById('result1');
+	vvres.innerHTML = res; */
+	document.getElementById('result1').innerHTML = res;
+}
+</script>
+</head>
+<body>
+첫번째 수 <input type="text" id="x" value="10"><br>
+두번째 수 <input type="text" id="y" value="20"><br>
+<br>
+결과 <input type="text" id="result"><br>
+<br>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀 병합</title>
+<style>
+	table {
+		border: 1px solid purple;
+		
+		/* border-width: 20px;
+		border-width: 20px 50px;
+		
+		border-color: red purple;
+		border-color: red blue purple;
+		border-color: red blue pink purple;
+		
+		border-style: dotted solid; */
+		
+		margin: 10px;
+	}
+	
+	td {
+		width : 180px;
+		height : 80px;
+		text-align: center;
+	}
+	
+	caption {
+		font-size: 2.0rem;
+		/* border: 3px dotted purple; */
+		/* margin-bottom: 20px;
+		margin-top: 20px; */
+		margin: 20px 0px;
+		caption-side: bottom;
+		letter-spacing: 20px; /* 자간 */
+	}
+</style>
+</head>
+<body>
+	<table border=1>
+	<caption>
+	고객 리스트
+	</caption>
+		<tr>
+			<td colspan=2></td>
+			<td colspan=2></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan=4></td>
+			<td colspan=2></td>
+		</tr>
+		<tr>
+			<td colspan=4></td>
+			<td colspan=2 rowspan=2></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+</html>

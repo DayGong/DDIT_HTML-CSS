@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	background: pink;
+	height: auto;
+}
+
+h1 {
+	color: red;
+}
+</style>
+<script>
+proc1 = () => {
+	inputvalue = prompt("이름 입력");
+	// window.opener.document
+	opener.document.getElementById('result1').innerHTML = inputvalue;
+	
+	window.close();
+}
+
+proc2 = () => {
+	str = "";
+	
+	// 수 입력
+	input = prompt("숫자 입력");
+	
+	// 구구단 처리
+	for(i = 1; i < 10; i++) {
+		str += `${input} * ${i} = ${input * i}<br>`;
+	}
+	
+	// 부모창의 result1에 str을 출력	
+	opener.document.getElementById('result1').innerHTML = str;
+	
+	window.close();
+}
+</script>
+</head>
+<body>
+<h1>sub window</h1>
+<div>
+	<br><br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br><br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

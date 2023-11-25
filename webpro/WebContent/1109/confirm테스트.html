@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>confirm테스트</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	background: pink;
+	height: auto;
+}
+
+.result {
+	border: 2px dotted green;
+	background: white;
+	padding: 5px;
+	height: auto;
+	margin-top: 5px;
+}
+</style>
+<script>
+let proc1 = function() {
+	let sum = 0;
+	let strsum = "";
+	
+	while(true) {
+		// 입력
+		let a = prompt("숫자를 입력하세요.");
+			
+		// 입력 값을 누적
+		sum += parseInt(a);
+		strsum += a;
+		
+		// 계속 여부 확인 (false 비교 break)
+		let flag = confirm("계속 하시겠습니까?");
+		
+		if (!flag) {
+			break;
+		}
+		
+		strsum += " + ";
+	}
+	
+	// 출력 내용
+	res = `합 = ${sum}<br>`;
+	res += `입력한 값들: ${strsum} <br>`;
+	printValue('result1', res);	
+} 
+
+//function printValue(where, result) {
+printValue = function(where, result) {
+	document.getElementById(where).innerHTML = result;
+}
+
+proc2 = function() {
+	let str = "";
+	
+	while(true) {
+		// 입력
+		let num = prompt("숫자를 입력하세요.");
+		
+		str += "========<br>";
+		str += `&nbsp&nbsp&nbsp&nbsp&nbsp${num}단<br>`;
+		str += "========<br>";
+		
+		// 구구단 작성
+		for (let i = 1; i < 10; i++) {
+			// 출력 형식 만들기
+			str += `${num} * ${i} = ${num*i}<br>`;
+		}
+		
+		// 계속할래?
+		let flag = confirm("계속하시겠습니까?");
+		
+		if(!flag) {
+			break;
+		}
+		
+		str += "<br>";
+		
+	}
+	
+	printValue('result2', str);
+}
+</script>
+</head>
+<body>
+	<div>
+		<input type="button" value="확인" onclick="proc1()"> 
+		<br>
+		<br>
+		confirm(): true/false를 리턴하는 대화상자<br>
+		입력한 수들을 누적시킨후 출력 - 입력 후 계속 여부를 체크한다.
+		<br>
+		<div id="result1" class="result"></div>
+	</div>
+	
+	<div>
+		<input type="button" value="확인" onclick="proc2()"> 
+		<br>
+		<br>
+		confirm(): true/false를 리턴하는 대화상자<br>
+		입력한 수의 구구단 출력 - 입력 후 계속 여부를 체크한다.
+		<br>
+		<div id="result2" class="result"></div>
+	</div>
+</body>
+</html>

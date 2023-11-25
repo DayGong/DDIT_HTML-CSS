@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div, header, nav, aside, section, footer {
+	box-sizing: border-box;
+	border: 1px solid gray;
+	margin: 1px;
+	border-radius: 20px;
+}
+
+#cont1 {
+	display: flex;
+	flex-direction: column;
+}
+
+#cont2 {
+	display: flex;
+	flex-direction: row;
+}
+
+header, footer {
+	background: orange;
+	height: 80px;
+}
+
+aside {
+	background: yellow;
+	flex: 20%;
+	height: 500px;
+}
+
+section {
+	background: lightblue;
+	flex: 60%;
+	height: 500px;
+}
+
+nav {
+	height: 50px;
+	background: pink;
+}
+</style>
+</head>
+<body>
+	<div id="cont1">
+		<header></header>
+		<nav></nav>
+		<div id="cont2">
+			<aside id="left"></aside>
+			<section></section>
+			<aside id="right"></aside>
+		</div>
+		<footer></footer>
+	</div>
+</body>
+</html>

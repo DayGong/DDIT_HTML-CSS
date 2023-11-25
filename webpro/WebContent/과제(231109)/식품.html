@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shopping</title>
+<style>
+#frumain {
+	display: flex;
+	flex-direction: row;
+}
+
+.frulist {
+	flex: 30%;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+	height: 380px;
+} 
+
+img {
+	display : block;
+	margin : auto;
+	width: 90%;
+	height: 60%;
+}
+
+input {
+	width: 100%;
+	text-align: center;
+	background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #FF4444;
+}
+
+</style>
+</head>
+<body>
+<form action="">
+	<div id="frumain">
+		<div class="frulist">
+			<img alt="영양죽" src="./images/식품1.jpg">
+			<h4>영양죽</h4>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+		<div class="frulist">
+			<img alt="꿀사과" src="./images/식품2.jpg">
+			<h4>꿀사과</h4>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+	</div>
+</form>
+</body>
+</html>

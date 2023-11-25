@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shop Page</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EFEFEF;
+    padding: 0;
+}
+
+#home {
+	display: flex;
+	flex-direction: column;
+    background-color: #FFF1E6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    background-color: #FAD02E;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #333;
+    text-shadow: 2px 2px 2px #999;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer {
+	text-align: center;
+	background-color: #FAD02E;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+section {
+	height: 580px;
+	background-color: #D7E3A7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FF4444;
+}
+
+fieldset {
+	margin: 0 auto;
+	width: 500px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.la {
+	width: 150px;
+}
+
+.in {
+	width: 200px;
+}
+
+.check {
+	width: 100px;
+	padding-left: 50px;
+}
+
+input[type="radio"] {
+	width: 50px;
+	margin-left: 0px;
+}
+
+butable {
+	text-align: center;
+}
+
+#butable button{
+	width: 45%;
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+<div id="home">
+	<header><h1>회원가입 페이지</h1></header>
+	<section>
+		<fieldset>
+		<legend>회원정보입력</legend>
+		<form action="">
+		<table>
+			<tr>
+				<td class="la"><label>아이디</label></td>
+				<td class="in"><input type="text" id="id"></td>
+				<td class="check"><button type="button">중복검사</button></td>
+			</tr>
+				
+			<tr>
+				<td><label>패스워드</label></td>
+				<td><input type="password"></td>
+			</tr>
+				
+			<tr>
+				<td><label>패스워드 확인</label></td>
+				<td><input type="password"></td>
+			</tr>
+				
+			<tr>
+				<td><label>이름</label></td>
+				<td><input type="text" placeholder="홍길동"></td>
+			</tr>
+				
+			<tr>
+				<td><label>휴대폰 번호</label></td>
+				<td>
+					<input type="tel"
+					pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{3,4}" 
+					placeholder="010-1234-5678">
+				</td>
+			</tr>
+				
+			<tr>
+				<td><label>이메일</label></td>
+				<td>
+					<input type="email"
+					pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"
+					placeholder="abc123@google.com">
+				</td>
+			</tr>
+				
+			<tr>
+				<td><label>생일</label></td>
+				<td><input type="date"></td>
+			</tr>
+				
+			<tr>
+				<td><label>홈페이지</label></td>
+				<td><input type="url" placeholder="https://www.google.com"
+				pattern="https:\/\/[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}"></td>
+			</tr>
+				
+			<tr>
+				<td><label>성별</label></td>
+				<td>
+					<input type="radio" name="gender">남자
+					<input type="radio" name="gender">여자
+				</td>
+			</tr>
+				
+			<tr id="butable">
+				<td colspan="3">
+					<button type="submit" class="last">제출</button>
+					<button type="reset" class="last">초기화</button>
+				</td>
+			</tr>
+		</table>		
+		</form>
+		</fieldset>
+	</section>
+	<footer>Copyright (c) 2023 Web Shop</footer>
+</div>
+</body>
+</html>

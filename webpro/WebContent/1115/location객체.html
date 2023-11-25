@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+proc1 = () => {
+	str = "전체 경로: " + location.href + "<br>";
+	str += "프로토콜: " + location.protocol + "<br>";
+	str += "hostname: " + location.hostname + "<br>";
+	str += "pathname: " + location.pathname + "<br>";
+	str += "port: " + location.port + "<br>";
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+proc2 = () => {
+	location.href 
+		= "http://localhost/webpro/1114/timeout_interval.html";
+}
+
+proc3 = () => {
+	// id = name, id = id인 요소 검색해서 입력한 값 가져오기
+	namevalue = document.getElementById('name').value;
+	idvalue = document.getElementById('id').value;
+	
+	// 서버로 전송
+	location.href = "location객체.jsp?id=" + idvalue + 
+			"&name=" + namevalue;
+}
+</script>
+</head>
+<body>
+<div>
+	<br>
+	<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	location: url로부터 정보를 얻는다<br>
+	location.href를 이용 방법 - 페이지 이동<br>
+	<input type="button" value="공지사항" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+
+<div>
+	location: url로부터 정보를 얻는다<br>
+	location.href를 a태그에서 이용 방법 - 페이지 이동<br>
+	<br>
+	<a href="../1113/Date객체.html">공지사항1</a>
+	<a href="javascript:proc2()">공지사항2</a>
+	<a href="#" onclick="location.href='../1113/경과시간구하기.html'">공지사항3</a>
+	<br><br>
+	get방식으로 서버로 전송하기
+	<br>
+	<input type="text" id="id" name="id" placeholder="아이디"><br>
+	<input type="text" id="name" name="name" placeholder="이름"><br>
+	<input type="button" value="확인" onclick="proc3()"> 
+	<br>
+	<div id="result3" class="result"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		border: 2px dotted green;
+		width: 500px;
+		height:200px;
+		padding: 10px;
+		margin: 20px;	
+		
+		background: orange;
+		
+		word-wrap: break-word;
+		overflow: auto;
+		
+		box-shadow: 20px 50px 5px yellow;
+	}
+</style>
+
+<script>
+// Script의 변수
+str = ["happy", "hello", "good", "HTML", "CSS", "JAVAScript",
+	"ajax", "DoOrDie"];
+	
+function appendStr() {
+	rand = parseInt(Math.random() * str.length);
+	
+	// 문자열을  선택
+	vstr = str[rand];
+	
+	// 문자열 객체를 생성
+	strobj = document.createTextNode(vstr);
+	
+	// div를 검색, 추가
+	document.getElementById('d1').appendChild(strobj);
+}
+
+function changeColor() {
+	// id가 col인 요소를 검색해서 값을 가져온다.
+	let colvalue = document.getElementById("col").value;
+	console.log(colvalue);
+	window.alert(colvalue);
+	
+	
+	// id가 d1인 요소의 배경색 변경;
+	var vd1 = document.getElementById('d1');
+	vd1.style.background = colvalue;
+	
+	/* vd1.innerHTML = colvalue; */
+	vd1.innerText = colvalue;
+}
+</script>
+</head>
+<body>
+<p>동적으로 문자열을 발생해서 div에 추가한다</p>
+몇가지 문자열을 배열에 등록시키고 랜덤으로 문자열을 선택한다.<br>
+선택한 문자열을 추가하기 위해서<br>
+a = document.createTextNode('문자열');<br>
+div.appendChild(a);<br>
+배열과 Math.random()메서드가 필요<br>
+<br>
+<input type="button" value="확인" onclick="appendStr()">
+
+<div id="d1">
+Happy new Year!!<br>
+</div>
+
+<input type="color" id="col" onchange="changeColor()">
+
+
+</body>
+</html>

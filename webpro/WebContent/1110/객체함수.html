@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div {
+	height: auto;
+}
+</style>
+
+<script>
+function proc1() {
+	
+}
+
+// 객체 함수 선언
+function Rect(garo, sero) {
+	this.garo = garo;
+	this.sero = sero;
+	
+	this.getArea = function() {
+		return this.garo * this.sero;
+	}
+	
+	this.getCircum = function() {
+		return (this.garo + this.sero) * 2;
+	}
+}
+
+//name속성을 추가
+Rect.prototype.name = "네모";
+
+// 람다함수 이용 - 화살표함수
+proc1 = (result) => {
+	
+	// Rect 정보 출력
+	const  rect1 = new Rect(3,4);
+	//rect1.name = "네모";
+	printRect('result1', rect1);
+}
+
+proc2 = (result) => {
+	// 가로, 세로 입력
+	value1 = parseInt(prompt("가로 입력"));
+	value2 = parseInt(prompt("세로 입력"));
+	
+	const rect2 = new Rect(value1, value2);
+	//rect2.name = "사각형";
+	printRect('result2', rect2);
+}
+
+// 출력함수 선언 printRect = function(result)
+// printRect = function(result) {}
+printRect = (result, obj) => {
+	str = `가로: ${obj.garo} <br>`;
+	str += `세로: ${obj.sero} <br>`;
+	str += `면적: ${obj.getArea()}<br>`;
+	str += `둘레: ${obj.getCircum()}<br>`;
+	str += `이름: ${obj.name}<br>`;
+	
+	document.getElementById(result).innerHTML = str;
+}
+</script>
+
+</head>
+<body>
+<div>
+	<br><br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+<div>
+	<br><br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

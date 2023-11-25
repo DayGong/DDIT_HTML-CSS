@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	background: pink;
+	height: auto;
+}
+
+.result {
+	border: 2px dotted green;
+	background: white;
+	padding: 5px;
+	height: auto;
+	margin-top: 5px;
+}
+</style>
+
+<script>
+function proc1() {
+	const fruit = ["사과", "바나나", "복숭아", "키위", 100, 345.123];
+	printArray(fruit, 'result1');
+}
+
+let printArray = function(arr, result) {}
+
+function printArray(arr, result) {
+	
+	str = "";
+	
+	/* for(i = 0; i < arr.length; i++) {
+		str += arr[i] + " ";
+	} */
+	
+	for (i in arr) {
+		str += arr[i] + " ";	
+	}
+	
+	// document.getElementById(result).innerHTML = str;
+	document.querySelector("#" + result).innerHTML = str;
+}
+
+function proc2() {
+	const nums = [];
+	nums[0] = 100;
+	nums[1] = 200;
+	nums[2] = 300;
+	
+	printArray(nums, 'result2');
+}
+
+function proc3() {
+	/* const flower = new Array();
+	flower[0] = "장미";
+	flower[1] = "라일락";
+	flower.push("국화"); */
+	
+	const flower = new Array("장미", "라일락", "국화", "구절초", "코스모스", "수선화");
+	
+	printArray(flower, 'result3');
+}
+</script>
+
+</head>
+<body>
+<div>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	const fruit = ["사과", "바나나", "복숭아", "키위", 100, 345.123];
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	const nums = [];
+	<div id="result2" class="result"></div>
+</div>
+
+<div>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	const flower = new Array();<br>
+	"장미", "라일락", "국화", "구절초", "코스모스", "수선화";
+	<div id="result3" class="result"></div>
+</div>
+</body>
+</html>

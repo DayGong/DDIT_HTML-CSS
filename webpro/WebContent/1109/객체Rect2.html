@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div {
+	height: auto;
+}
+
+.result {
+	background: white;
+}
+</style>
+<script>
+const rect = {}
+
+proc1 = function() {
+	rect.name = "네모";
+	rect.garo = 10;
+	rect.sero = 23;
+	
+	rect.getArea = function() {
+		return this.garo * this.sero;
+	}
+	
+	rect.getCircum = function() {
+		return (this.garo + this.sero) * 2;
+	}
+	
+	printRect('result1');
+}
+
+printRect = function(result) {
+	// 출력 형식
+	res = `가로: ${rect.garo}<br>`;
+	res += `세로: ${rect.sero}<br>`;
+	res += `이름: ${rect.name}<br>`;
+	res += `면적: ${rect.getArea()}<br>`;
+	res += `둘레: ${rect.getCircum()}`;
+	
+	document.getElementById(result).innerHTML = res;	
+}
+</script>
+</head>
+<body>
+<div>
+	rect 객체 선언<br>
+	속성과	메소드가 없는 빈 객체 선언<br>
+	실행 중에 동적으로 속성 메소드를 추가할 수 있다<br>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+</body>
+</html>

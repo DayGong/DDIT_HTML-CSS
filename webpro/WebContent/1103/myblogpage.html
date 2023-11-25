@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	margin: 10px;
+}
+
+header, footer {
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+}
+
+header {
+	background: yellow;
+	border-radius: 20px;
+	height: 100px;
+}
+
+footer {
+	background: #9999E6;
+	border-radius: 50px;
+	height: 50px;
+	padding-top: 15px;
+}
+
+aside {
+	border-radius: 20px;
+}
+
+#cont1 {
+	border: 5px solid blue;
+	display: flex;
+	flex-direction: column;
+}
+
+#cont2 {
+	display: flex;
+	flex-direction: row;
+}
+
+#cont3, #cont4 {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+/* #cont4 {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+} */
+#left {
+	background: #E69999;
+	flex: 20%;
+	display: flex;
+	height: 400px;
+}
+
+#right {
+	background: #99E6E6;
+	flex: 80%;
+	margin-left: 10px;
+	height: 400px;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:visited {
+	color: yellow;
+}
+
+.as {
+	border: 2px dotted #208827;
+	background: #9ED7C2;
+	height: 140px;
+	border-radius: 20px;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<div id="cont1">
+		<header>
+			<h2>My Blog Page</h2>
+			시멘틱 태그로 만들어진 페이지입니다.
+		</header>
+		<div id="cont2">
+			<aside id="left">
+				<div id="cont3">
+					<h4>Links</h4>
+					<ul>
+						<li><a href="https://www.https://www.w3schools.com">w3schools</a></li>
+						<li><a href="https://www.naver.com">Naver</a></li>
+						<li><a href="https://www.daum.net">Daum</a></li>
+					</ul>
+					<figure>
+					<img alt="spongebob.png" src="../images/spongebob.png">
+					<figcaption>스폰지밥</figcaption>
+					</figure>
+				</div>
+			</aside>
+			<!-- <section>
+				<article>
+					<h4>Semantic Tags</h4>
+					<p>시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적으 명확하게 알려주는 요소이다.
+					레이아웃을 만들때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.</p>
+				</article>
+				<article>
+					<h4>div와 span</h4>
+					<p>div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. span요소는 인라인
+					요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.</p>
+				</article>
+			</section> -->
+			<aside id="right">
+				<div id="cont4">
+					<div class="as">
+						<aside>
+							<h4>Semantic Tags</h4>
+							시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적으 명확하게 알려주는 요소이다.
+							레이아웃을 만들때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.
+						</aside>
+					</div>
+					<div class="as">
+						<aside>
+							<h4>div와 span</h4>
+							div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. span요소는 인라인
+							요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.
+						</aside>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<footer>Copyright (c)2019 Hong</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css/public.css">
+
+<script>
+function proc1() {
+	// 첫번째 수 입력
+	let first = parseInt(prompt("첫번째 수를 입력하세요"));
+	
+	// 두번째 수 입력
+	let second = parseInt(prompt("두번째 수를 입력하세요"));
+	
+	// 연산자 입력
+	let op = prompt("연산자를 입력하세요");
+	
+	// 연산지 비교 if 또는 switch
+	switch(op) {
+		// add() 호출 - return하지 않는다.
+		case '+':
+			add(first, second);
+			break;
+		
+		// sub() 호출 - return하지 않는다.
+		case '-':
+			sub(first, second);
+			break;
+		
+		// multi() 호출 - return하지 않는다.
+		case '*':
+			multi(first, second);
+			break;
+		
+		// divide() 호출 - return하지 않는다.
+		case '/':
+			divide(first, second);
+			break;
+			
+		default:
+			res = "잘못 입력";
+			break;
+	}
+	
+	// 결과 출력
+	document.getElementById('result1').innerHTML = `${first} ${op} ${second} = ${res}`;
+}
+
+function add(first, second) {
+	res = first + second;
+}
+
+function sub(first, second) {
+	if (first >= second) {
+		res = first - second;
+	} else {
+		res = second - first;
+	}
+}
+
+function multi(first, second) {
+	res = first * second;
+}
+
+function divide(first, second) {
+	res = first / second;
+	res = res.toFixed(2);
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<br>
+<div id = "result1"></div>
+<!-- 결과 <input type="text" id="result"><br> -->
+</body>
+</html>

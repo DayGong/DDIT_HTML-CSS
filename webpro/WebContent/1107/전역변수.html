@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css/public.css">
+
+<script>
+function calc() {
+	res = parseInt(a) + parseInt(b);
+}
+
+window.onload = function() {
+	// id = result1인 요소를 검색
+	let vres = document.getElementById('result1');
+	
+	// var, let 붙이지않으면 전역변수
+	a = prompt("첫번째 숫자 입력");
+	b = prompt("두번째 숫자 입력");
+	
+	calc();
+	
+	// 함수 호출 결과값을 출력
+	vres.innerHTML = `${a} + ${b} = ${res} <br>`;
+}
+</script>
+</head>
+<body>
+<div id="result1"></div>
+</body>
+</html>

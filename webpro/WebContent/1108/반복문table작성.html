@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div {
+	height: auto;
+}
+
+table {
+	border: 3px solid blue;
+	/* border-collapse: separate; */
+	border-spacing: 10px;
+}
+
+td {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+}
+</style>
+<script>
+str = "<table border='1'>"
+for (i=1; i<10; i++) {
+	str += "<tr>"
+	for(j=1; j<10; j++) {
+		/* str += "<td>" + (i*j) + "</td>" */
+		str += `<td> ${i*j} </td>`;
+	}
+	str += "</tr>"
+}
+str += "</table>"
+
+window.onload = function() {
+	// result 검색
+	document.getElementById('result').innerHTML = str;
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부 스타일 -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부 스크립트 -->
+<script src="../js/public.js"></script>
+
+<style>
+/* 내부 스타일 */
+div {
+	/* overflow: auto; */
+	height: auto;
+}
+</style>
+
+<!-- 내부 스크립트 -->
+<script>
+	function calc() {
+		let dan = prompt("몇 단을 출력할까요", "숫자로 입력하세요");
+		str = "";
+		
+		for (i = 1; i < 10; i++) {
+			str += dan + " * " + i + " = " + (dan * i) + "<br>"		// HTML 태그 <br>이 포함되어있음
+		}
+		
+		// id=res1을 검색
+		var vres1 = document.querySelector('#res1');
+		
+		// 출력
+		vres1.innerText = str;
+	}
+</script>
+
+</head>
+<body>
+<input type="button" value="확인외부" onclick="proc1()">
+<br><br>
+<input type="button" value="확인inline" onclick="alert('hello')">
+<br><br>
+<input type="button" value="확인내부" onclick="calc()">
+<br><br>
+<div id="res1"></div>
+</body>
+</html>

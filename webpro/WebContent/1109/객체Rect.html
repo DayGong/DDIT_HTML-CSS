@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div {
+	height: auto;
+}
+
+.result {
+	background: white;
+}
+</style>
+
+<script>
+const rect = {
+		garo : 5,
+		sero : 2,
+		
+		/* getArea : function() {},
+		getCircum : function() {} */
+		
+		getArea() {
+			return this.garo * this.sero;
+		},
+		getCircum() {
+			return (this.garo + this.sero) * 2;
+		}
+}
+
+printRect = function(result) {
+	let res;
+	
+	// 출력 형식
+	res = `가로: ${rect.garo}<br>`;
+	res += `세로: ${rect.sero}<br>`;
+	res += `이름: ${rect.name}<br>`;
+	res += `면적: ${rect.getArea()}<br>`;
+	res += `둘레: ${rect.getCircum()}`;
+	
+	document.getElementById(result).innerHTML = res;		
+}
+
+proc2 = function() {
+	// 가로 입력
+	in1 = parseInt(prompt("가로를 입력하세요"));
+		
+	// 세로 입력
+	in2 = parseInt(prompt("세로를 입력하세요"));
+	
+	// 이름 입력
+	rectName = prompt("이름 입력");
+	
+	// 입력받은 값을 rect객체의 garo, sero 속성에 대입
+	rect.garo = in1;
+	rect.sero = in2;
+	
+	// rect 안에는 name이 없지만 동적으로 속성 추가 가능
+	rect.name = rectName;
+	
+	// 출력 함수 호출
+	printRect('result2');
+}
+
+proc1 = function() {
+	
+	rect.name = "네모";
+	
+	// 출력
+	printRect('result1');
+}
+
+</script>
+</head>
+<body>
+<div>
+	rect 객체 선언<br>
+	속성: garo, sero<br>
+	메소드: getArea(), getCircum()<br><br>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	rect 객체 선언<br>
+	속성: garo, sero<br>
+	메소드: getArea(), getCircum()<br>
+	가로 세로 입력받기<br>
+	
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

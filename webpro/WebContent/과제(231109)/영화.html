@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shopping</title>
+<style>
+body {
+	text-align: center;
+}
+
+#movmain {
+	display: flex;
+	flex-direction: row;
+}
+
+.movlist {
+	flex: 30%;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+	height: 250px;
+} 
+
+img {
+	display : block;
+	margin : auto;
+	width: 90%;
+	height: 80%;
+}
+
+input {
+	width: 100%;
+	text-align: center;
+	background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #FF4444;
+}
+
+iframe {
+	width: 90%;
+}
+
+</style>
+</head>
+<body>
+<iframe src="https://www.youtube.com/embed/cU_lhnaFNiA?si=9YelVOuClV-5Qjo8" name="movifr"></iframe>
+<div id="movmain">
+	<div class="movlist">
+		<a href="https://www.youtube.com/embed/cU_lhnaFNiA?si=9YelVOuClV-5Qjo8" target="movifr">
+			<img alt="항거" src="./images/영화1.jpg">
+		</a>
+		<input type="button" value="쇼핑카트에 추가하기">
+	</div>
+		
+	<div class="movlist">
+		<a href="https://www.youtube.com/embed/BaIRaKXrLPk?si=lMxYl-75v7iaANpi" target="movifr">
+			<img alt="극한직업" src="./images/영화2.jpg">
+		</a>
+		<input type="button" value="쇼핑카트에 추가하기">
+	</div>
+</div>
+
+</body>
+</html>

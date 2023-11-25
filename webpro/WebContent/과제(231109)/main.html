@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shop Page</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EFEFEF;
+    padding: 0;
+}
+
+#home {
+	display: flex;
+	flex-direction: column;
+    background-color: #FFF1E6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+header, footer {
+	vertical-align: middle;
+}
+
+header {
+    text-align: center;
+    background-color: #FAD02E;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header a {
+	text-decoration: none;
+	color: #333;
+}
+
+header h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 2px #999;
+    font-weight: bold;
+}
+
+footer {
+	text-align: center;
+	background-color: #FAD02E;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#homemiddle {
+	display: flex;
+	flex-direction: row;
+	background-color: #FFD4C0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+nav {
+    background-color: #AED9E8;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #FF6B6B;
+    transition: color 0.2s;
+}
+
+aside {
+	flex: 20%;
+	background-color: #F6F6F6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+aside h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #FFD4C0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+li:before {
+    content: "\2022"; /* 원 모양 아이콘 (U+2022) */
+    font-size: 16px;
+    margin-right: 10px;
+    color: #FF6B6B;
+}
+
+li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+li a:hover {
+    color: #FF6B6B;
+}
+
+section {
+	flex: 60%;
+	height: 500px;
+	background-color: #D7E3A7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+article, iframe {
+	width: 100%;
+	height: 100%;
+}
+
+iframe {
+	border: none;
+}
+
+#shopcart {
+	height: 40%;
+}
+
+#login {
+	height: 60%;
+}
+
+img {
+	height: 30px;
+}
+
+button {
+    background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FF4444;
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#right a {
+  text-decoration: none;
+  color: #FF6B6B;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #FF6B6B;
+  border-radius: 5px;
+  transition: color 0.2s;
+}
+
+#right a:hover {
+  color: #fff;
+  background-color: #FF6B6B;
+}
+
+</style>
+</head>
+<body>
+	<div id="home">
+		<header>
+			<h1>
+				<img src="./images/w3cert.gif" alt="logo"> <a
+					href="./main.html">Web Shopping</a>
+			</h1>
+		</header>
+
+		<nav>
+			<a href="main.html">Home</a>
+			<a href="">About Us</a>
+			<a href="">News</a>
+			<a href="">My Account</a>
+			<a href="">Contacts</a>
+		</nav>
+		<div id="homemiddle">
+			<aside id="left">
+				<h3>카테고리</h3>
+				<ul>
+					<li><a href="computer.html" target="mainifr">컴퓨터</a></li>
+					<li><a href="clothing.html" target="mainifr">의류</a></li>
+					<li><a href="음악.html" target="mainifr">음악</a></li>
+					<li><a href="영화.html" target="mainifr">영화</a></li>
+					<li><a href="스포츠레저.html" target="mainifr">스포츠/레저</a></li>
+					<li><a href="가구인테리어.html" target="mainifr">가구/인테리어</a></li>
+					<li><a href="식품.html" target="mainifr">식품</a></li>
+				</ul>
+			</aside>
+
+			<section id="main">
+				<article id="mainarticle">
+					<iframe src="computer.html" name="mainifr"></iframe>
+				</article>
+			</section>
+
+			<aside id="right">
+				<div id="shopcart">
+					<h4>Shopping Cart</h4>
+					현재 쇼핑카트에 물품이 없습니다.<br>
+					<a href="shopcart.html" target="_blank">쇼핑카트 보기</a>
+				</div>
+
+				<div id="login">
+					<h4>Log In</h4>
+					<form action="">
+						<label>아이디</label><br>
+						<input type="text"><br>
+						<label>패스워드</label><br>
+						<input type="password"><br>
+						<button type="submit">로그인</button> 
+						<button type="reset">초기화</button>
+					</form>
+					<a href="register.html" target="_blank">회원가입</a> <a href="">비밀번호 찾기</a>
+				</div>
+			</aside>
+		</div>
+		<footer>Copyright (c) 2023 Web Shop</footer>
+	</div>
+</body>
+</html>

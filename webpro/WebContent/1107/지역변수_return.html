@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+window.onload = function() {
+	// id = result1인 요소를 검색
+	var vres = document.getElementById('result1');
+	
+	// 함수 호출 결과값을 출력
+	vres.innerHTML = "34 + 56 = " + calc(34, 56) + "<br>";
+}
+function calc(x, y) {
+	var res = x + y;
+	return res;
+}
+</script>
+</head>
+<body>
+<br><br>
+<div id="result1"></div>
+</body>
+</html>

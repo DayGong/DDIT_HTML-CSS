@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	fieldset {
+		/* border: 2px solid pink; */
+		border-color: green blue;
+		border-width: 5px 10px 20px 30px;
+		
+		margin: 20px;
+		
+		border-style: double groove;
+		border-top-style: solid;
+		border-bottom-color: pink;
+		
+		width: 30%;
+	}
+	
+	label {
+		display: inline-block;
+		width: 100px;
+		height: 30px;
+	}
+	
+	.gend {
+		width: 40px;		
+	}
+	
+	.fem {
+		margin-left: 50px;
+	}
+	
+	textarea {
+		resize: none;
+	}
+</style>
+<script>
+	function change() {
+		// color요소를 검색
+		var vcol = document.getElementById('color')
+		/* document.querySelector('#color') */
+		
+		// 검색된 color요소에서 선택된 색상값을 가져온다
+		/* vcol.value */
+		
+		// color 요소 검색 후 선택된 색상 값을 가져오기
+		var colvalue = document.querySelector('#color').value;
+		
+		// 색상 변경 대상을 검색 -> fieldset
+		fields = document.getElementsByTagName('fieldset')
+		
+		// field의 배경색을 변경
+		for (var i = 0; i < fields.length; i++){
+			fields[i].style.background = colvalue;
+		}
+	}
+</script>
+</head>
+<body>
+<form action="formfieldset.jsp" method="post">
+
+	배경색 변경 <input type="color" id="color" onchange="change()"><br>
+	<fieldset>
+		<legend>기본 입력 사항</legend>
+		<label>이름</label><input type="text" name="name" id="name" placeholder="이름"><br>
+		<label>주소</label><input type="text" name="addr" id="addr"><br>
+		
+		<label>전화번호</label>
+		<input type="tel" name="tel" id="tel" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{3,4}" title="000-0000-0000"><br>
+		
+		<label>이메일</label>
+		<input type="email" name="mail" id="mail" pattern="[a-zA-z0-9]+@[a-zA-z]+[0-9]*(\.[a-zA-Z]+){1,2}"><br>
+		
+		<label>생일</label>
+		<input type="date" name="date" id="date"><br>
+		
+		<label>성별</label>
+		<input type="radio" name="gender" class="gender">남자
+		<input type="radio" name="gender" class="gender">여자
+		<br>
+		<label class="gend">남자</label>
+		<input type="radio" name="gender2" class="gender2">
+		<label class="gend fem">여자</label>
+		<input type="radio" name="gender2" class="gender2">
+	</fieldset>
+	
+	<fieldset>
+		<legend>경력 사항</legend>
+		<textarea rows="" cols=""></textarea>
+		<br>
+		<textarea rows="" cols=""></textarea>
+	</fieldset>
+	
+	<fieldset>
+		<legend>봉사활동</legend>
+		<textarea rows="" cols=""></textarea>
+		<br>
+		<textarea rows="" cols=""></textarea>
+	</fieldset>
+	
+	<input type="submit">
+</form>
+</body>
+</html>

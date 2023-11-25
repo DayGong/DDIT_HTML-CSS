@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1 {
+		text-align: center;
+	}
+	
+	table {
+		margin: 30px;
+		text-align: left;
+	}
+	
+	.title {
+		width: 50px;
+	}
+	
+	.cont {
+		vertical-align: text-top;
+	}
+	
+	.textBox {
+		width: 300px;
+	}
+	
+	fieldset {
+		margin: 0 auto;
+		text-align: center;
+		border-color: blue;
+		width: 450px;
+	}	
+</style>
+</head>
+<body>
+<h1>회원가입 화면</h1>
+<div>
+<fieldset>
+<table>
+	<tr>
+		<td class="title">이름</td>
+		<td><input class="textBox" type="text" name="name" id="name"></td>
+	</tr>
+	<tr>
+		<td class="title">주소</td>
+		<td><input class="textBox" type="text" name="addr" id="addr"></td>
+	</tr>
+	<tr>
+		<td class="title">이메일</td>
+		<td><input class="textBox" type="email" name="email" id="email"
+			pattern="[a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"></td>
+	</tr>
+	<tr>
+		<td class="title">성별</td>
+		<td>
+			<input type="radio" name="gender" value="Male" name="gender" id="gender">Male
+			<input type="radio" name="gender" value="Female" name="gender" id="gender">Female
+		</td>
+	</tr>
+	<tr>
+		<td class="title cont">내용</td>
+		<td><textarea rows="10" cols="40" name="contents" id="contents"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<input type="submit" value="제출">
+			<input type="reset"	value="초기화">
+		</td>
+	</tr>
+</table>
+</fieldset>
+</div>
+</body>
+</html>

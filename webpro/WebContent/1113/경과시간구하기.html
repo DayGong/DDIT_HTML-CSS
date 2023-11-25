@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+today = new Date();
+
+proc1 = () => {
+	// 생일
+	myday = new Date("1995.4.29");
+	//myDay = new Date(1995,4-1,29);
+	
+	times = today.getTime() - myday.getTime();
+	
+	console.log(times);
+	
+	// 올림
+	birthday = Math.floor(times /1000 /60 /60 /24 /365);
+	// 내림
+	birthday = Math.ceil(times /1000 /60 /60 /24 /365);
+	
+	
+	str = "오늘: " + today.toLocaleString() + "<br>";
+	str += "생일: " + myday.toLocaleString() + "<br>";
+	str += "지금까지 " + birthday + "년째 살고 있습니다.";
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+proc2 = () => {
+	todayTime = today.getTime();
+	
+	// 100일 후 타임
+	time100 = 100 * 1000 * 60 * 60 * 24;
+	
+	console.log(todayTime, time100);
+	
+	// 현재 millisec + 100일 후 millisec
+	times = todayTime + time100;
+	
+	after100 = new Date(times);
+	
+	console.log(after100);
+	
+	str = "오늘: " + today.toLocaleString() + "<br>";
+	str += "100일 후: " + after100.toLocaleString() + "<br>";
+	// 날짜만 출력
+	str += "100일 후: " + after100.toLocaleDateString() + "<br>";
+	// 시간만 출력
+	str += "100일 후: " + after100.toLocaleTimeString() + "<br>";
+	
+	document.getElementById('result2').innerHTML = str;
+}
+
+proc3 = () => {
+	masday = new Date("2023.12.25");
+	
+	times = masday.getTime() - today.getTime();
+	
+	//day = times /1000 /60 /60 /24;
+	day = Math.floor(times /1000 /60 /60 /24);
+	
+	str = "오늘: " + today.toLocaleString() + "<br>";
+	str += "크리스마스: " + masday.toLocaleString() + "<br>";
+	str += "남은 날: " + day;
+	
+	document.getElementById('result3').innerHTML = str;
+}
+
+proc4 = () => {
+	// id=buyday요소를 검색 - 값 가져오기
+	buyvalue = document.getElementById('buyday').value;
+	
+	// buyvalue값으로 date객체를 생성한다.
+	buyday = new Date(buyvalue);
+	
+	// 오늘의 millisec - buyday의 millisec
+	times = today.getTime() - buyday.getTime();
+	
+	// times로 일 수 구하기
+	days = Math.floor(times / 1000 /60 /60 /24);
+	
+	if (days < 0) {
+		alert("미래는 선택할 수 없습니다.");
+		return;
+	}
+	
+	str = "구매일: " + buyday.toLocaleDateString() + "<br>";
+	str += "오늘: " + today.toLocaleDateString() + "<br>";
+	str += days + "일이 경과하였습니다.<br>";
+	
+	// 비교
+	if (days >= 7) {
+		str += "교환 불가능" ;
+	} else {
+		str += "교환 가능";
+	}
+	
+	document.getElementById('result4').innerHTML = str;
+	
+}
+</script>
+</head>
+<body>
+
+<div>
+	태어난 날로부터 현재까지 경과 날 수 구하기/여(남)친 만난 날로부터 경과일 구하기
+	<br><br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	100일 후
+	<br><br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+
+<div>
+	크리스마스까지 얼마나 남았나?
+	<br><br>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="result3" class="result"></div>
+</div>
+
+<div>
+	구입한 날(선택한 날)로부터 현재까지 경과 일 수 구하기 <br>
+	7일 이후이면 교환 불가능 아니면 교환 가능<br>
+	<input type="date" id="buyday">
+	<input type="button" value="확인" onclick="proc4()">
+	<br><br>
+	<div id="result4" class="result"></div>
+</div>
+</body>
+</html>

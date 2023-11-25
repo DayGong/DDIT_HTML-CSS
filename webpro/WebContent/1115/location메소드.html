@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+proc1 = () => {
+	// location.replace('../1114/timeout_interval.html');
+	location.assign('../1114/timeout_interval.html')
+}
+
+proc2 = () => {
+	arr = ["hello", "사랑은 늘 도망가", "do or die", "우리들의 블루스"];
+	
+	rand = parseInt(Math.random() * arr.length);
+		
+	res2 = document.getElementById('result2');
+		
+	res2.innerText = arr[rand];
+	res2.style.color = 'red';
+	res2.style.fontSize = "1.5rem";
+	
+	setTimeout(function(){
+		location.reload();
+	}, 2000);
+	
+}
+</script>
+</head>
+<body>
+
+<div>
+	location.replace('페이지이름'): history가 없다, 뒤로가기가 안 됨<br>
+	location.assign('페이지이름'): history가 있다, 뒤로가기가 됨<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	location.reload(): 현재문서를 다시 로드한다.<br><br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

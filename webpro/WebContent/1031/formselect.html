@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="shortcut icon" href="../images/check.png">
+
+</head>
+<body>
+<form action="formselect.jsp" method="post">
+	<label>이름</label>
+	<input type="text" name="name" id="name"><br>
+	
+	<label>특징</label><br>
+	<textarea rows="10" cols="50" name="area" id="area"></textarea><br>
+	
+	<select name="cars">
+		<option value="BMW">BMW</option>
+		<option value="BENZ" selected>BENZ</option>
+		<option value="HYUNDAI">HYUNDAI</option>
+		<option value="KIA">KIA</option>
+		<option value="RENOKOREA">RENOKOREA</option>
+	</select>
+	
+	<input type="submit">
+	<input type="reset">
+</form>
+</body>
+</html>

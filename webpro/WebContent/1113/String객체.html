@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+str = "Abc Korea abc";
+
+proc1 = () => {
+	ca = str.charAt(4);
+	cca = str.charCodeAt(4);
+	iof = str.indexOf("Korea");
+	
+	console.log(ca, cca, iof);
+	
+	document.getElementById('result1').innerHTML = `${ca}, ${cca}, ${iof}`;
+}
+
+proc2 = () => {
+	slice = str.slice(4,9);
+	substr = str.substring(4,9);
+	sublen = str.substr(4,5);
+	
+	document.getElementById('result2').innerHTML = `${slice}, ${substr}, ${sublen}`;
+}
+
+proc3 = () => {
+	strlen = "";
+
+	for(i=0; i<str.length; i++) {
+		strlen += `${i} => ${str[i]}<br>`;
+	}
+	
+	strlen += "========================================<br>";
+	
+	document.getElementById('result3').innerHTML = strlen;
+	
+	arr = str.split(" ");
+	arrlen = "";
+	
+	for(i=0; i<arr.length; i++) {
+		arrlen += `${i} => ${arr[i]} <br>`;
+	}
+	
+	document.getElementById('result3').innerHTML += arrlen;
+}
+</script>
+</head>
+<body>
+
+<div>
+	str = "Abc Korea abc";<br>
+	ca = str.charAt(4);<br>
+	cca = str.charCodeAt(4);<br>
+	iof = str.indexOf("Korea");<br>
+	<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	str = "Abc Korea abc";<br>
+	substring(start, end) / slice(start, end) / substr(start, length)
+	<br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+
+<div>
+	str = "Abc Korea abc";<br>
+	split(구분자, 갯수): 문자열을 배열로 변환
+	<br>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="result3" class="result"></div>
+</div>
+
+</body>
+</html>

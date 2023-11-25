@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리스트2</title>
+<style>
+	ol {
+		border: 2px solid blue;
+		margin: 10px;
+		padding: 5px;
+		width: 150px;
+		height: 180px;
+		float: left; /* block요소들을 옆으로 배치 */
+	}
+	
+	li {
+		border: 1px dotted red;
+		margin: 10px;
+		/* padding: 5px; */
+		list-style-position: inside;
+	}
+	
+	#o2 li {
+		list-style-type: upper-alpha;
+	}
+	
+	#o3 li {
+		list-style-type: hangul;
+	}
+	
+	#o4 li {
+		list-style-image: url(../images/check.png);
+	}
+	
+	hr {
+		border: 5px solid red;
+		clear: both; /* float 초기화 */
+	}
+	
+	/* #o5 {
+		height: 350px;
+	} */
+	
+	img {
+		width: 30px;
+		height: 30px;
+	}
+</style>
+</head>
+<body>
+	<ol id="o1">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+		<li>AJAX</li>
+	</ol>
+	
+	<ol id="o2">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+		<li>AJAX</li>
+	</ol>
+	
+	<ol id="o3">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+		<li>AJAX</li>
+	</ol>
+	
+	<ol id="o4">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+		<li>AJAX</li>
+	</ol>
+	
+	<hr>
+	
+	<ol id="o5">
+		<li><img src = "../images/image.1.jpg" alt = "image.1.jpg"></li>
+		<li><img src = "../images/image.2.jpg" alt = "image.2.jpg"></li>
+		<li><img src = "../images/image.3.jpg" alt = "image.3.jpg"></li>
+		<li><img src = "../images/image.4.jpg" alt = "image.4.jpg"></li>
+	</ol>
+	
+	<ol id="o6">
+		<li><a href="https://www.naver.com" target="_blank">네이버</a></li>
+		<li><a href="https://www.daum.net" target="_self">다음</a></li>
+		<li><a href="https://www.nate.com" target="_parent">네이트</a></li>
+		<li><a href="https://www.google.com" target="_top">구글</a></li>
+	</ol>
+	
+	<ol id="o7">
+		<li>
+			<a href="https://www.naver.com">
+				<img src = "../images/image.1.jpg" alt = "image.1.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="https://www.daum.net">
+				<img src = "../images/image.2.jpg" alt = "image.2.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="https://www.nate.com">
+				<img src = "../images/image.3.jpg" alt = "image.3.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="https://www.google.com">
+				<img src = "../images/image.4.jpg" alt = "image.4.jpg">
+			</a>
+		</li>
+	</ol>
+	
+	<hr>
+</body>
+</html>

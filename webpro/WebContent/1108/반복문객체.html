@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+// 객체 선언
+var myCar = { make: "BMW", model: "x5", year: 2013};
+// 객체 사용 myCar[make], myCar[model], myCar[year]
+
+str = "";
+for (let x in myCar) {
+	str += `myCar[${x}] : ${myCar[x]}<br>`;
+}
+
+window.onload = function() {
+	document.getElementById('result').innerHTML = str;
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

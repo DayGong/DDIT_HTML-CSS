@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부 스타일 -->
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(a, b) {
+	var res = a + b;
+	// return a + b;
+}
+
+// body 완료되자마자 실행 됨
+window.onload = function() {
+	// id=result1인 요소를 검색
+	var vres = document.getElementById('result1');
+	
+	a = prompt("첫번째 숫자 입력");
+	b = prompt("두번째 숫자 입력");
+	proc1(a, b);
+	// res = proc1(parseInt(a), parseInt(b));
+	
+	// res는 proc1() 함수 내에서 선언된 지역변수라서 사용 불가
+	vres.innerHTML = `${a} + ${b} = ${res} <br>`;
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+</body>
+</html>

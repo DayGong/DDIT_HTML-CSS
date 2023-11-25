@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shopping</title>
+<style>
+#musmain {
+	display: flex;
+	flex-direction: row;
+}
+
+.muslist {
+	flex: 30%;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+} 
+
+img {
+	display : block;
+	margin : auto;
+	width: 90%;
+	height: 40%;
+}
+
+input {
+	width: 100%;
+	text-align: center;
+	background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #FF4444;
+}
+
+audio {
+	/* width: 200px; */
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<form action="">
+	<div id="musmain">
+		<div class="muslist">
+			<img alt="itzy" src="./images/음악1.jpg">
+			<p>
+			'JYP 5인조 신인 걸그룹' ITZY, 타이틀곡 '달라달라' 발매!
+			</p>
+			<audio src="./multi/androidBell_20161112163456.ogg" controls></audio>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+		<div class="muslist">
+			<img alt="앤마리" src="./images/Anne-Marie(앤마리)-2002.jpg">
+			<p>
+			Anne Marie(앤마리) - 2002<br>
+			Anne Marie~~!!!
+			</p>
+			<audio src="./multi/old_pop.mp3" controls></audio>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+		<div class="muslist">
+			<img alt="BTS" src="./images/소우주.jpg">
+			<p>
+			소우주 (Mikrokosmos)/방탄소년단
+			</p>
+			<audio src="./multi/movie.mp4" controls></audio>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+	</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Shopping</title>
+<style>
+#furmain {
+	display: flex;
+	flex-direction: row;
+}
+
+.furlist {
+	flex: 30%;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+} 
+
+img {
+	display : block;
+	margin : auto;
+	width: 90%;
+	height: 50%;
+}
+
+input {
+	width: 100%;
+	text-align: center;
+	background-color: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #FF4444;
+}
+
+</style>
+</head>
+<body>
+<form action="">
+	<div id="furmain">
+		<div class="furlist">
+			<img alt="쇼파" src="./images/가구1.jpg">
+			<h4>쇼파</h4>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+		<div class="furlist">
+			<img alt="tv장" src="./images/가구2.jpg">
+			<h4>tv장</h4>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+		
+		<div class="furlist">
+			<img alt="2층 침대" src="./images/가구3.jpg">
+			<h4>2층 침대</h4>
+			<input type="button" value="쇼핑카트에 추가하기">
+		</div>
+	</div>
+</form>
+</body>
+</html>

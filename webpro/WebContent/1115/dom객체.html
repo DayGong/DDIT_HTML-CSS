@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+
+img {
+	width: 50px;
+	height: 50px;
+}
+</style>
+<script>
+proc1 = () => {
+	// ul검색
+/* 	document.getElementByTagName('ul');
+	documnet.querySelector('ul');
+	document.querySelectorAll('ul'); */
+	
+	viu1 = document.querySelector('#iu1');
+	// vlist = document.querySelectorAll('#iu1 li');
+	vlist = viu1.querySelectorAll('li')
+	str = ""
+	
+	for(i=0; i<vlist.length; i++) {
+		str += vlist[i].firstChild.data +"<br>";
+	}
+	
+	document.querySelector('#result1').innerHTML = str;
+	
+}
+
+proc2 = () => {
+	// iu2를 검색
+	viu2 = document.querySelector('#iu2');
+	
+	// iu2의 li요소를 검색
+	vlist = viu2.querySelectorAll('li');
+	
+	// 반복문 - 각 li요소들의 text문자를 가져온다
+	for(i=0; i<vlist.length; i++) {
+		vtext = vlist[i].firstChild.data;
+			
+		// vtext로 textNode를 생성
+		tNode = document.createTextNode(vtext);
+		
+		// 이미지 태그를 생성
+		vimg = document.createElement("img");
+		
+		// 이미지에 src 속성을 vtext로 설정
+		vimg.src = "../images/" + vtext;
+		/* vimg.width = "80px";
+		vimg.height = "50px"; */
+	
+		// 각 li요소에 추가
+		vlist[i].appendChild(vimg);
+	}
+	
+	document.querySelector('li').innerHTML = vtext;
+}
+
+proc3 = (target) => {
+	vtext = target.firstChild.data;
+	
+	// textNode생성
+	tnode = document.createTextNode(vtext);
+	
+	// img 태그 생성
+	vimg = document.createElement("img");
+	vimg.src = "../images/" + vtext;
+	
+	target.appendChild(vimg);
+	
+	
+}
+
+window.onload = () => {
+	list4 = document.querySelectorAll('#iu4 li');
+	
+	for ( i=0; i<list4.length; i++) {
+		list4[i].addEventListener('click', eclick);
+	}
+	
+	function eclick() {
+		// text 문자를 가져온다.
+		vtext = this.firstChild.data;
+		
+		// textNode 생성
+		tnode = document.createTextNode(vtext);
+		
+		// img태그를 생성
+		vimg = document.createElement("img");
+		// src
+		vimg.src = "../images/" + vtext;
+			
+		// 현재 객체(this)에 vimg를 추가한다.
+		this.appendChild(vimg);
+	}
+}
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<ul id = "iu1">
+		<li> List Item 1 </li>
+		<li> List Item 2 </li>
+		<li> List Item 3 </li>
+		<li> List Item 4 </li>
+		<li> List Item 5 </li>
+	</ul>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br><br>
+	<ul id = "iu2">
+		<li>카페라떼.jpg</li>
+		<li>아메리카노.jpg</li>
+		<li>핫초코.jpg</li>
+		<li>카푸치노.jpg</li>
+		<li>뱅쇼.jpg</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+
+<div>
+	각 li요소에 onclick="proc3(this)"를 설정<br><br>
+	<ul id = "iu3">
+		<li onclick="proc3(this)">카페라떼.jpg</li>
+		<li onclick="proc3(this)">아메리카노.jpg</li>
+		<li onclick="proc3(this)">핫초코.jpg</li>
+		<li onclick="proc3(this)">카푸치노.jpg</li>
+		<li onclick="proc3(this)">뱅쇼.jpg</li>
+	</ul>
+</div>
+
+<div>
+	스크립트에서 li를 검색하여 일괄적으로 click 이벤트를 설정<br><br>
+	<ul id = "iu4">
+		<li>카페라떼.jpg</li>
+		<li>아메리카노.jpg</li>
+		<li>핫초코.jpg</li>
+		<li>카푸치노.jpg</li>
+		<li>뱅쇼.jpg</li>
+	</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-width: 2px 5px;
+		border-top-width: 10px;
+		
+		border: 3px solid blue;
+		margin: 20px;
+	}
+	
+	td {
+		width: 200px;
+		height: 50px;
+		text-align: center;
+	}
+	
+	tr:nth-child(odd) {
+		background: lightgreen;
+	}
+	
+	tr:nth-child(even) {
+		background: lightgray;
+	}
+	
+	tr:first-child {
+		background-color: black;
+		color: white;
+		font-size: 2.0rem;
+	}
+	
+	#tab2 td:first-child {
+		background-color: pink;
+	}
+	
+	#tab2 td:nth-child(2n) {
+		background: orange;
+	}
+	
+	#tab2 td:nth-child(3) {
+		background: hotpink;
+	}
+	
+	#tab2 tr:first-child td {
+		background-color: black;
+	}
+	
+	.title {
+		background-color: blue;
+	}
+	
+	div {
+		border: 2px solid rgb(210, 222, 98);
+		padding: 30px;
+		margin: 20px;
+	}
+	
+	h3 {
+		background-color: crimson;
+		color: white;
+	}
+	
+	div p {
+		background: lightblue;
+	}
+	
+	/* div p:nth-child(2n-1) {
+		background: gray;
+	} */
+	
+	/* p:nth-child(odd) {
+		background: gray;
+	} */
+	
+	/* div p:nth-child(2n) {
+		background: gray;
+	} */
+	
+	p:nth-child(even) {
+		background: gray;
+	}
+</style>
+</head>
+<body>
+<div>
+	<h3>별빛같은 나의 사랑아</h3>
+	<p>무궁화 꽃이 피었습니다.</p>
+	<p>사랑은 늘 <span>도망가</span></p>
+	<p>이제 나만 믿어요</p>
+	<p>do or die</p>
+</div>
+
+<div>
+	<h3>별빛같은 나의 사랑아</h3>
+	<p>무궁화 꽃이 피었습니다.</p>
+	<p>우리들의 블루스</p>
+	<p>런던보이</p>
+	<p>폴라로이드</p>
+</div>
+
+<table id="tab1" border="1">
+	<tr>
+		<td>제목1</td>
+		<td>제목2</td>
+		<td>제목3</td>
+		<td>제목4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+</table>
+
+<table id="tab2" border="1">
+	<tr>
+		<td>제목1</td>
+		<td>제목2</td>
+		<td>제목3</td>
+		<td>제목4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+</table>
+
+<table id="tab2" border="1">
+	<tr>
+		<td>제목1</td>
+		<td>제목2</td>
+		<td>제목3</td>
+		<td>제목4</td>
+	</tr>
+</table>
+</body>
+</html>

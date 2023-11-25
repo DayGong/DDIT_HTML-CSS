@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+const arr = ["Hello", "사랑은 늘 도망가", "우리들의 블루스", "이제 나만 믿어요", 
+	"볓빛같은 나의 사랑아", "런던보이", "폴라로이드", "사랑해 진짜", "손이 참 곱던 그대"];
+	
+add = () => {
+	rand = parseInt(Math.random() * arr.length);
+	
+	// arr[rand] - textNode생성
+	tnode = document.createTextNode(arr[rand]);
+	
+	// p태그 생성
+	ptag = document.createElement("p");
+	
+	// p태그에 tnode를 추가
+	ptag.appendChild(tnode);
+	
+	// result1에 p태그를 추가
+	document.querySelector('#result1').appendChild(ptag);
+}
+
+delPro = () => {
+	// 부모 찾기
+	res1 = document.querySelector("#result1");
+	
+	// 삭제는 부모에서 가능
+	res1.removeChild(res1.firstChild);
+}
+
+addDel = () => {
+	// rand 발생
+	rand = parseInt(Math.random() * arr.length);
+	
+	// 선택 문자열로 textNode 생성
+	tnode = document.createTextNode(arr[rand]);
+	
+	// input태그 생성
+	/* inputtag = document.createElement("input");
+	// type과 value 설정
+	inputtag.type = "button";
+	inputtag.value = "삭제"; */
+	
+	vinput = document.createElement('button');
+	vinput.type = "button";
+	vinput.innerText = "삭제";
+	vinput.onclick = function() {
+		this.parentNode.remove();
+	}
+	
+	// p태그 생성
+	ptag = document.createElement("p");
+	
+	// p태그에 tnode를 추가
+	ptag.appendChild(tnode);
+	// p태그에 input태그를 추가
+	ptag.appendChild(vinput);
+	
+	// result2를 검색해서 p태그를 추가
+	document.querySelector('#result2').appendChild(ptag);
+}
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="추가" onclick="add()">
+	<input type="button" value="삭제" onclick="delPro()">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br><br>
+	<input type="button" value="추가/삭제" onclick="addDel()">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

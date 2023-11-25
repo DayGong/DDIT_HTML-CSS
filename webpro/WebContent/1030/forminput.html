@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label {
+		display: inline-block;
+		width: 110px;
+		height: 30px;
+	}
+	
+	form {
+		border: 2px solid blue;
+		/* margin: 30px; */
+		margin: 30px auto;
+		padding: 10px;
+		width: 40%;
+	}
+	
+	h3 {
+		text-align: center;
+		border: 2px dotted green;
+	}
+	
+	div {
+		border: 1px dotted red;
+		padding: 20px;
+	}
+</style>
+
+<script>
+	function pro1() {
+		// html 요소에 접근 검색 - id를 이용
+		var vid = document.getElementById('id');
+		var vname = document.getElementById('name');
+		
+		var vqty = document.querySelector('#qty');
+		var vprice = document.querySelector('#price');
+		
+		// 검색 요소의 입력하거나 선택한 값을 가져온다. - 결과값은 String
+		vvid = vid.value;
+		vvname = vname.value;
+		vsum = parseInt(vqty.value) * parseInt(vprice.value);
+		/* parseInt 써도되고 안 써도 됨*/
+		
+		// 출력 내용
+		var str = "아이디: " + vvid + "<br>";
+		str += "이름: " + vvname + "<br>";
+		str += "수량: " + parseInt(vqty.value) + "<br>";
+		str += "가격: " + parseInt(vprice.value) + "<br>";
+		str += "총금액: " + vsum + "<br>";
+		
+		// 출력 장소 검색
+		// var res = document.getElementsByTagName('div');
+		// res[0].innerHTML = str;
+		
+		// var res = document.querySelector('div');
+		// res.innerHTML = str;
+		
+		// document.getElementById('result');
+		
+		var res = document.querySelector('#result');
+		res.innerHTML = str;
+	}
+</script>
+
+</head>
+<body>
+<form action = "forminput.jsp" method = "post">
+	<label>아이디</label>
+	<input type="text" name="id" size="30"><br>
+	
+	<label>이름</label>
+	<input type="text" name="name"><br>
+	
+	<label>성별</label>
+	<input type="radio" value="남자" name="gender">남자
+	<input type="radio" value="여자" name="gender" checked>여자
+	
+	<br>
+	
+	<label>좋아하는 과일</label>
+	<input type="checkbox" value="사과" name="fruit" checked>사과
+	<input type="checkbox" value="복숭아" name="fruit" checked>복숭아
+	<input type="checkbox" value="포도" name="fruit">포도
+	<input type="checkbox" value="참외" name="fruit">참외
+	<input type="checkbox" value="키위" name="fruit">키위
+	<input type="checkbox" value="파인애플" name="fruit">파인애플
+	
+	<br>
+	
+	<label>자기소개</label><br>
+	<textarea rows="10" cols="50" name="area"></textarea>
+	
+	<br><br>
+	
+	<input type="file" name="file" accept="text/html">
+	
+	<br><br>
+	
+	<input type="submit" value="전송">
+	<input type="reset" value="취소">
+</form>
+
+<hr color="red">
+<h3>입력한 값을 javascript에서 계산</h3>
+<form>
+	<label>아이디</label>
+	<input type="text" name="id" id="id"><br>
+	
+	<label>이름</label>
+	<input type="text" name="name" id="name"><br>
+	
+	<label>수량</label>
+	<input type="number" id="qty" min="0" max="100" step="10" value="10" name="qty"><br>
+	
+	<label>가격</label>
+	<input type="number" id="price" min="1" max="10000" value="100" name="price"><br>
+	
+	<input type="button" value="확인" onclick="pro1()">
+	<input type="reset">
+</form>
+
+<br><br>
+
+<form>
+	<h3>결과 출력</h3>
+	<div id="result"></div>
+</form>
+</body>
+</html>

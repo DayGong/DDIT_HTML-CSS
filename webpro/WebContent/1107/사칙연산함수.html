@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(a) {
+	// id=x를 검색-값 가져오기
+	// let xvalue = document.getElementById('x').value;
+	xvalue = parseInt(document.querySelector('#x').value);
+		
+	// id=y를 검색-값 가져오기
+	//let yvalue = document.getElementById('y').value;
+	yvalue = parseInt(document.querySelector('#y').value);
+	
+	// 계산
+	let res = 0;
+	
+	switch (a) {
+	case '+':
+		res = xvalue + yvalue;
+		break;
+	case '-':
+		if (xvalue >= yvalue){
+			res = xvalue - yvalue;
+		} else {
+			res = yvalue - xvalue;
+		}
+		break;
+	case '*':
+		res = xvalue * yvalue;
+		break;
+	case '/':
+		res = xvalue / yvalue;
+		break;
+	}
+	
+	document.getElementById('result').value = res;
+}
+</script>
+</head>
+<body>
+첫번째 수 <input type="text" id="x" value="10"><br>
+두번째 수 <input type="text" id="y" value="20"><br>
+<br>
+결과 <input type="text" id="result"><br>
+<br>
+<input type="button" value="더하기(+)" onclick="proc1('+')">
+<input type="button" value="빼기(-)" onclick="proc1('-')">
+<input type="button" value="곱하기(*)" onclick="proc1('*')">
+<input type="button" value="나누기(/)" onclick="proc1('/')">
+</body>
+</html>

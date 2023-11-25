@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부 스타일 -->
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function dateProc() {
+	today = new Date();
+	
+	// id="result1"인 요소를 검색
+	vres = document.getElementById('result1');
+	vres.innerText = today;
+	
+	vday = "<br>" + today.toLocaleString() + "<br>"
+	vres.innerHTML += vday;
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="dateProc()">
+<br><br>
+<div id="result1"></div>
+</body>
+</html>

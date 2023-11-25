@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	box-sizing: border-box;
+	margin: 1px;
+	border-radius: 20px;
+}
+
+#cont {
+	display: flex;
+	flex-direction: column;
+}
+
+#cont2 {
+	display: flex;
+	flex-direction: row;
+}
+
+#header, #footer {
+	width: 100%;
+	height: 80px;
+	background: orange;
+}
+
+#left, #main, #right {
+	height: 500px;
+}
+
+#left, #right {
+	background-image: linear-gradient(skyblue, white);
+	flex: 20%;
+}
+
+#main {
+	background-image: linear-gradient(pink, white);
+	flex: 60%;
+}
+
+</style>
+</head>
+<body>
+	<div id="cont1">
+		<div id="header"></div>
+		<div id="cont2" class="cont">
+			<div id="left"></div>
+			<div id="main"></div>
+			<div id="right"></div>
+		</div>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>
