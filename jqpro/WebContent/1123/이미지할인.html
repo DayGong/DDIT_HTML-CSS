@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+
+	<style>
+		div {
+			height: auto;
+		}
+
+		#result1,
+		#result2 {
+			display: flex;
+			flex-direction: row;
+		}
+
+		#result1 .box,
+		#result2 .box {
+			box-sizing: border-box;
+			flex: 20%;
+			background: gray;
+
+		}
+
+
+		.result {
+			height: 200px;
+			width: 60%;
+
+		}
+
+		img {
+			width: 100%;
+			height: 80%;
+		}
+
+		div {
+			margin: 5px;
+			padding: 5px;
+		}
+	</style>
+
+	<script>
+		ptag = null;
+
+		window.onload = function () {
+			//result2의 img를 검색 
+			img2 = document.querySelectorAll('#result2 img');
+
+			for (i = 0; img2.length; i++) {
+				img2[i].addEventListener('click', sale2)
+			}
+		}
+		sale2 = function () {
+			//ptag를 삭제 
+			if (ptag != null) ptag.remove();
+
+			//랜덤 으로 10 ~ 50 까지 의 수 발생 
+			rand = parseInt(Math.random() * 41 + 10);
+			//<p>25%</p>
+			ptag = document.createElement("p");
+
+			text = rand + "%";
+			tnode = document.createTextNode(text);
+
+			//ptag에 tnode를 추가 
+			ptag.appendChild(tnode);
+
+			//this : 클릭한 img[index]
+			///ptag를 클릭한 이미지(this)의 부모인   .box에 추가 
+			this.parentNode.appendChild(ptag);
+
+			// 클릭이벤트를 제거 한다 
+			this.removeEventListener('click', sale2);
+		}
+
+		sale = (vimg) => {
+			//vimg : 클릭한이미지 this를 받은 매개변수, 지역변수 
+			vidx = vimg.getAttribute('idx');
+			if (vidx > 0) return false;
+
+			//ptag를 삭제 
+			if (ptag != null) ptag.remove();
+
+			//랜덤 으로 10 ~ 50 까지 의 수 발생 
+			rand = parseInt(Math.random() * 41 + 10);
+			//<p>25%</p>
+			ptag = document.createElement("p");
+
+			text = rand + "%";
+			tnode = document.createTextNode(text);
+
+			//ptag에 tnode를 추가 
+			ptag.appendChild(tnode);
+
+			//ptag를 클릭한 이미지(this:vimg)의 부모인   .box에 추가 
+			vimg.parentNode.appendChild(ptag);
+
+			//img의 idx속성값을 1로 변경 
+			vimg.setAttribute('idx', 1)
+		}
+	</script>
+</head>
+
+<body>
+
+	<div>
+		각각의 img요소에 onclick=sale(this)<br>
+		<br>
+		<div id="result1" class="result">
+			<div class="box">
+				<img idx="0" onclick="sale(this)" src="../images/셔틀콕.jpg" alt="셔틀콕.jpg">
+			</div>
+
+			<div class="box">
+				<img idx="0" onclick="sale(this)" src="../images/jQuery.jpg" alt="jQuery.jpg">
+			</div>
+
+			<div class="box">
+				<img idx="0" onclick="sale(this)" src="../images/Penguins.jpg" alt="Penguins.jpg">
+			</div>
+
+			<div class="box">
+				<img idx="0" onclick="sale(this)" src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+			</div>
+
+			<div class="box">
+				<img idx="0" onclick="sale(this)" src="../images/수국.jpg" alt="수국.jpg">
+			</div>
+		</div>
+	</div>
+
+
+	<div>
+		img클릭이벤트를 script에서 addEventListener를 일괄적으로 등록<br>
+		<br>
+		<div id="result2" class="result">
+			<div class="box">
+				<img src="../images/셔틀콕.jpg" alt="셔틀콕.jpg">
+			</div>
+
+			<div class="box">
+				<img src="../images/jQuery.jpg" alt="jQuery.jpg">
+			</div>
+
+			<div class="box">
+				<img src="../images/Penguins.jpg" alt="Penguins.jpg">
+			</div>
+
+			<div class="box">
+				<img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+			</div>
+
+			<div class="box">
+				<img src="../images/수국.jpg" alt="수국.jpg">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<style>
+		div {
+			height: auto;
+		}
+
+		table {
+			border: 1px solid green;
+		}
+
+		td {
+			width: 200px;
+			height: 50px;
+		}
+	</style>
+	<script>
+		$(document).ready(() => {
+			$('#btn1').on('click', () => {
+				// $('td:first').css('background', 'pink');
+
+				$('td:first-child').css('background', 'orange');
+
+				$('td:nth-child(2)').css('background', 'yellow');
+
+				// td로 배경색을 줬기 때문에 tr로만하면 배경색이 변경되지않는다.
+				// 때문에 tr 밑에 td를 줘야한다.
+				$('tr:first-child td').css('background', 'black').css('color', 'white');
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<br><br>
+		<input type="button" value="확인" id="btn1">
+		<br><br>
+		<div id="result1" class="result">
+			<table border="1">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

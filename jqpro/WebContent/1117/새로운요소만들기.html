@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+img {
+	width: 50px;
+	height: 50px;
+}
+</style>
+<script>
+	$(function() {
+
+		// btn2 검색 - 이벤트 핸들러 설정
+		$('#btn2').on('click', function() {
+			// vimg = $('<img src="" alt="" onclick="">');
+
+			// vimg = $('<img>', {
+			// 	"src" : "../images/코알라.jpg",
+			// 	"alt" : "코알라.jpg",
+			// 	"click" : function() {
+			// 		$(this).css('border', '3px solid blue');
+			// 	}
+			// })
+
+			// //result2을 검색 - 추가 
+			// $('#result2').append(vimg);
+			
+			$('<img>', {
+				"src" : "../images/코알라.jpg",
+				"alt" : "코알라.jpg",
+				"click" : function() {
+					$(this).css('border', '3px solid blue');
+				}
+			}).appendTo($('#result2'));
+		})
+		
+		// btn1 검색 - 이벤트 핸들러 설정
+		$('#btn1').on('click', function() {
+			// 새로운 p태그를 생성
+			// ptag = $('<p class="pp" onclick="proc1(this)"> Hello </p>');
+			// ptag = $('<p></p>', {})
+			ptag = $('<p/>', {
+				"class" : "pp",
+				"text" : "Hello",
+				"click" : function() {
+					$(this).css('font-size', '+=5px');
+				}
+			})
+			
+			// result1검색 - 추가
+			// $(ptag).appendTo($('#result1'));
+			$('#result1').append(ptag);
+		})
+
+	})
+
+	function proc1(target) {
+		target.style.fontSize = '20px';
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="확인" id="btn1">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br><br>
+	<input type="button" value="이미지 만들기" id="btn2">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

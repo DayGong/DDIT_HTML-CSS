@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+$(function(){
+
+	$('.clean').on('click', function(){
+		$(document).off('click', '.btn');
+	})
+	
+	// $(document).delegate('선택자', 'click', function(){})
+	
+	cnt = 0;
+	$(document).on('click', '.btn',function(){
+		cnt++;
+
+		vbtn = $(`<input type="button" value="새로운버튼${cnt}" class="btn">`);
+
+		$('#result1').append(vbtn);
+	})
+})
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="확인" class="btn">
+	<input type="button" value="해제" class="clean">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+</body>
+</html>

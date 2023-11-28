@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	$(() => {
+
+		$('#clot').on('click', () => {
+			$('#result2').append( $('#p2').clone(true) );
+		})
+
+		$('#clo').on('click', function() {
+			$('#p1').clone().appendTo($('#result2'));
+		})
+
+		$('.pp').on('click', function() {
+			$(this).css('font-size', '+=5px');
+		});
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="clone" id="clo">
+	<input type="button" value="clonetrue" id="clot">
+	<br><br>
+	<div id="result1" class="result">
+		<p id="p1" class="pp">사랑은 늘 도망가</p>
+		<P id="p2" class="pp">우리들의 블루스</P>
+	</div>
+	<div id="result2" class="result"></div>
+</div>
+</body>
+</html>

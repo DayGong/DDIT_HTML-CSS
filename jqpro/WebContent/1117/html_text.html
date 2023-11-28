@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	$(function(){
+		// btn1을 검색 - 이벤트 핸들러 설정
+		$('#btn1').on('click', function(){
+			aa = $('body').html();
+			alert(aa);
+		})
+
+		$('#btn2').on('click', function(){
+			bb = $('body').text();
+			alert(bb);
+		})
+
+		$('#btn3').on('click', function() {
+			// aa = $('#result2 p').html(); // 첫번째 것만 가져오기
+			// alert(aa);
+
+			str = "";
+			// 반복문 // 모두 가져오기
+			// $('p'): jQuery
+			// $('p')[i]: dom
+			// $($('p')[i]): jQuery
+			$('p').each(function(i, v){
+				// v = $('p')[i]
+				// str += $($('p')[i]).html() + "\n";
+				str += $(v).html() + "\n";
+			})
+
+			alert(str);
+		})
+
+		$('#btn4').on('click', function() {
+			bb = $('#result2 p').text();
+			alert(bb);
+		})
+	})
+</script>
+</head>
+<body>
+
+<div>
+	html() : 태그를 포함한 문장 가져오기<br>
+	text() : 태그를 빼고 문장만 가져오기 <br>
+	<input type="button" value="html" id="btn1">
+	<input type="button" value="text" id="btn2">
+	<br><br>
+	<div id="result1" class="result">hello</div>
+</div>
+
+<div>
+	$('p').html() : 태그를 포함한 문장 가져오기 - 첫번쨰만 대상으로 수행<br>
+	$('p').text() : 태그를 빼고 문장만 가져오기 - p태그 전체를 대상으로 한다.<br>
+	<input type="button" value="html" id="btn3">
+	<input type="button" value="text" id="btn4">
+	<br><br>
+	<div id="result2" class="result">
+		<p>사랑은 늘 도망가<span>-신사와 아가씨-</span></p>
+		<p>이제 나만 믿어요<span>-믿어요-</span></p>
+		<p>별빛같은 나의 사랑아<span>-사랑아-</span></p>
+		<p>do or die<span>-죽기 살기-</span></p>
+	</div>
+</div>
+
+</body>
+</html>

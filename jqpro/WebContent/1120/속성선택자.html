@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	// window.onload = function(){}
+	// $(document).ready(function(){})
+	$(() => {
+		// btn1 검색
+		// $('#btn1')
+		// $('input[value=확인]')
+		$('input[id=btn1]').on('click', () => {
+			// title이 있는 p 요소를 선택
+			$('p[title]').css('border', '1px solid blue');
+
+			// title이 korea로 시작하는 p 요소
+			$('p[title^=korea]').css('color', 'red');
+
+			// title이 korea로 끝나는 p 요소
+			$('p[title$=korea]').css('font-size', '1.5rem');
+
+			// title이 korea 글자가 포함된 p 요소
+			$('p[title*=korea]').css('background', 'pink');
+
+			// title이 korea 단어가 포함된 p 요소
+			$('p[title~=korea]').css('font-weight', 'bold');
+
+			// type이 password인 input요소를 선택 - 테두리 빨강
+			$('input[type=password]').css('border', 'dashed red');
+		})
+	})
+</script>
+</head>
+	<body>
+		<div>
+			<br>
+			<br>
+			<input type="button" value="확인" id="btn1">
+			<br>
+			<br>
+			<div id="result1" class="result">
+				<p title="일반문단"> 일반 문단입니다 </p>
+				<p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+				회원번호 <input type="text"><br>
+				비밀번호 <input type="password"><br>
+				<input type="button" value="전송">
+				<br><br>
+				<p title="hello">무궁화 꽃이 피었습니다1</p>
+				<p title="korea hello">무궁화 꽃이 피었습니다2</p>
+				<p title="koreahello">무궁화 꽃이 피었습니다3</p>
+				<p title="hi">무궁화 꽃이 피었습니다4</p>
+				<p >무궁화 꽃이 피었습니다5</p>
+				<p title="hikorea">무궁화 꽃이 피었습니다6</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+
+	<script src="../js/jquery-3.7.1.min.js"></script>
+
+	<script>
+		$(() => {
+
+			$('#result2 img').on({
+				mouseover: function () {
+					//이미지를 temp에 있는 이미지로 변경 
+					//temp의 값을 가져온다 
+					vtemp = $(this).attr('temp');
+
+					vtemp = "../images/" + vtemp;
+
+					//src의 값을 변경
+					$(this).attr('src', vtemp);
+				},
+				mouseout: function () {
+
+					//원래의 그림으로 다시 돌아가기 
+					//alt의 값을 가져온다 
+					valt = $(this).attr('alt');
+
+					valt = "../images/" + valt;
+
+					//src의 값을 변경한다
+					$(this).attr('src', valt);
+				},
+				dblclick: function () {
+
+					$(this).hide();
+				}
+			})
+
+			// $('#result2 img').bind('mouseover', function () {
+
+			// 	//이미지를 temp에 있는 이미지로 변경 
+			// 	//temp의 값을 가져온다 
+			// 	vtemp = $(this).attr('temp');
+
+			// 	vtemp = "../images/" + vtemp;
+
+			// 	//src의 값을 변경
+			// 	$(this).attr('src', vtemp);
+
+			// })
+
+			// $('#result2 img').bind('mouseout', function () {
+
+			// 	//원래의 그림으로 다시 돌아가기 
+			// 	//alt의 값을 가져온다 
+			// 	valt = $(this).attr('alt');
+
+			// 	valt = "../images/" + valt;
+
+			// 	//src의 값을 변경한다
+			// 	$(this).attr('src', valt);
+
+			// })
+
+			$('#all').on('change', function () {
+
+				//전체선택의  checked의 상태 값을 가져온다
+				aa = $(this).prop('checked');
+
+				//12345의 상태값을 변경한다 - aa의 값으로 
+				$('.check').prop('checked', aa);
+
+			})
+
+			$('#btn1').on('click', () => {
+				//각 요소들의 상태 값을 가져온다 
+				vchk = $('#checkTest').prop('checked');
+				vsel = $('#selTest option').eq(2).prop('selected');
+				vtxt = $('#txtTest').prop('readonly');
+				vbtn = $('#runBtn').prop('disabled');
+
+				console.log(vchk, vsel, vtxt, vbtn);
+
+				$('#checkTest').prop('checked', !vchk);
+				$('#selTest option').eq(2).prop('selected', !vsel);
+				$('#txtTest').prop('readonly', !vtxt);
+				$('#runBtn').prop('disabled', !vbtn)
+			})
+
+		})
+	</script>
+	<style>
+		div {
+			height: auto;
+		}
+
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div>
+		<br>
+		<br>
+		<input type="button" value="확인" id="btn1">
+		<br>
+		<br>
+		<div id="result1" class="result">
+			<form>
+				체크박스(라디오버튼) :
+				<input type="checkbox" id="checkTest" checked><br><br>
+
+				리스트박스(select객체) :
+				<select id="selTest">
+					<option value="1">하나</option>
+					<option value="2">둘</option>
+					<option value="3" selected>셋</option>
+					<option value="4">넷</option>
+				</select><br><br>
+
+				text객체(readonly) :
+				<input type="text" value="가나다" id="txtTest"><br><br>
+
+				button객체(disabled) :
+				<input type="button" value="실행" id="runBtn" onclick="alert('hello~~')">
+			</form>
+		</div>
+	</div>
+
+	<div>
+		<br>
+		<br>
+		<input type="checkbox" id="all">전체선택
+
+		<input type="checkbox" class="check">1
+		<input type="checkbox" class="check">2
+		<input type="checkbox" class="check">3
+		<input type="checkbox" class="check">4
+		<input type="checkbox" class="check">5
+	</div>
+
+	<div>
+		마우수를 그림위로 올려 놓으면 (mouseover)다른 그림으로 바뀌고 <br>
+		다시 마우스를 내려놓으면(mouseout) 원래 그림으로 바꾼다
+		<br>
+		<div id="result2" class="result">
+			<img src="../images/Koala.jpg" alt="Koala.jpg" temp="펭귄.jpg">
+			<img src="../images/Tulips.jpg" alt="Tulips.jpg" temp="핫초코.jpg">
+			<img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg" temp="수국.jpg">
+			<img src="../images/아메리카노.jpg" alt="아메리카노.jpg" temp="셔틀콕.jpg">
+			<img src="../images/호랑이.jpg" alt="호랑이.jpg" temp="뱅쇼.jpg">
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>

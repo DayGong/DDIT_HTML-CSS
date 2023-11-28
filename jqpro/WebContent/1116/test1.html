@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부 스크립트 파일 jQuery -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	proc1 = () => {
+		alert("proc1");
+
+		//result1를 검색 - style 변경 - dom변수
+		//res1 = document.querySelector('#result1');
+		//res1.style.background = 'blue';
+
+		//jQuery객체변수
+		res1 = $('#result1');
+		res1.css('background' , 'pink');
+		
+	}
+
+	window.onload = function() {
+		btn1 = document.querySelector('#btn1');
+		btn1.addEventListener('click', proc2);
+
+		// btn2 검색
+		$('#btn2');
+	}
+
+	$(document).ready(function() {
+		// btn2 검색
+		btn2 = document.querySelector('#btn2');
+		btn2.style.background = 'yellow';
+
+		//$('#btn2');
+	})
+
+	proc2 = () => {
+		alert("proc2");
+	}
+
+
+</script>
+</head>
+<body>
+
+<div>
+	<br>
+	javascript방식의 이벤트<br>
+	script에서 요소 검색시 window.onload = function() {} <br>
+	<input type="button" value="확인" onclick="proc1()">
+	<input type="button" value="확인" id="btn1">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br>
+	jQuery방식의 이벤트<br>
+	script에서 요소 검색시 $(document).ready(function(){}) <br>
+	<input type="button" value="확인" id="btn2">
+	<br><br>
+	<div id="result2" class="result"></div>
+</div>
+
+</body>
+</html>

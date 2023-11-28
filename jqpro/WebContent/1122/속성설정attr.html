@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<style>
+		div {
+			height: auto;
+		}
+
+		img {
+			width: 80px;
+			height: 80px;
+		}
+	</style>
+	<script>
+		$(() => {
+			$('#btn1').on('click', function() {
+				$('img').attr('title', function() {
+					// src의 속성값을 가져온다
+					vsrc = $(this).attr('src');
+
+					// .의 위치를 찾는다 - end
+					start = vsrc.lastIndexOf('/');
+					end = vsrc.lastIndexOf('.');
+
+					// start, end를 이용하여 자르기 한다.
+					vtitle = vsrc.slice(start+1, end);
+
+					return vtitle;
+				});
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<br><br>
+		<input type="button" value="확인" id="btn1">
+		<br><br>
+		<div id="result1" class="result">
+			<img src="../images/코알라.jpg" alt="코알라.jpg">
+			<img src="../images/펭귄.jpg" alt="펭귄.jpg">
+			<img src="../images/수국.jpg" alt="수국.jpg">
+			<img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+			<img src="../images/등대.jpg" alt="등대.jpg">
+		</div>
+	</div>
+</body>
+
+</html>

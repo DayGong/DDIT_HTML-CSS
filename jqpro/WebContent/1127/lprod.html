@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	$( () => {
+		
+		// prod의 항목을 선택하면 prod항목의 상세보기가 출력
+		$('#prod').on('click', function() {
+			// prod의 항목 자식인 option을 선택
+			idvalue = $('option:selected', this).val().trim();
+			
+			// 서버로 전송
+			$.ajax({
+				url :'/jqpro/ProdServlet.do',
+				type : 'post',
+				data : { "prod_id" : idvalue },
+				success : function(res) {
+					code = "<table>";
+					code += "<tr><td>PROD_ID</td>";
+					code += `<td>${res.prod_id}</td>`;
+					
+					code += "<tr><td>PROD_NAME</td>";
+					code += `<td>${res.prod_name}</td>`;
+					
+					code += "<tr><td>PROD_BUYER</td>";
+					code += `<td>${res.prod_buyer}</td>`;
+					
+					code += "<tr><td>PROD_COST</td>";
+					code += `<td>${res.prod_cost}</td>`;
+					
+					code += "<tr><td>PROD_LGU</td>";
+					code += `<td>${res.prod_lgu}</td>`;
+					
+					code += "<tr><td>PROD_DETAIL</td>";
+					code += `<td>${res.prod_detail}</td>`;
+					
+					code += "<tr><td>PROD_PRICE</td>";
+					code += `<td>${res.prod_price}</td>`;
+					
+					code += "<tr><td>PROD_SALE</td>";
+					code += `<td>${res.prod_sale}</td>`;
+					
+					code += "</tr>";
+					code += "</table>";
+					
+					$('#res3').html(code);
+				},
+				error : function(xhr) {
+					alert("에러 상태: " + xhr.status);
+				},
+				dataType : 'json'
+			})
+		})
+		
+		// lprod의 항목을 선택하면 이벤트
+		$('#lprod').on('change', function() {
+			
+			// 선택한 lprod의 자식인 option을 선택하면 - prod의 항목을 출력
+			guvalue = $('option:selected', this).val().trim();
+			
+			// 서버로 전송
+			$.ajax({
+				url : '/jqpro/ProdServlet.do',
+				type : 'get',
+				data : { "lprod_gu" : guvalue },
+				success : function(res) {
+					
+					code = "";
+					
+					if (res == "") {
+						code += `<option value="0">데이터 없음</option>`
+					} else {
+						$.each(res, function(i, v) {
+							code += `<option value="${v.prod_id}">${v.prod_name}</option>`
+						})
+					}
+					
+					$('#prod').html(code);
+				},
+				error : function(xhr) {
+					alert("에러 상태: " + xhr.status);
+				},
+				dataType : 'json'
+			})
+		})
+		
+		// mvc패턴
+		$('#btn3').on('click', function() {
+			$.ajax({
+				// url : '서블릿컨트롤러이름(java파일)',
+				url : '/jqpro/LprodList.do',
+				type : 'get',
+				success : function(res) {
+					code = "";
+					
+					$.each(res, function(i, v) {
+						code += `<option value="${v.lprod_gu}">${v.lprod_nm}</option>`;
+					})
+					
+					$('#lprod').html(code);
+				},
+				error : function(xhr) {
+					alert("에러 상태: " + xhr.status);
+				},
+				dataType : 'json'
+			})
+		})
+		
+		$('#btn2').on('click', function() {
+			// 동기 실행
+			location.href = '/jqpro/1127/SynclprodList.jsp';
+		})
+		
+		$('#btn1').on('click', function() {
+			/*
+			$.ajax({
+				// url: 'controller servlet클래스', 
+				url: '/jqpro/1127/lprodList.jsp', 
+				type:'get', 
+				// data: '값', // 없으면 생략
+				success: function(res) {
+					code = "<table border = '1'>";
+					code += "<tr>";
+					code += "<td>LPROD_ID</td>";
+					code += "<td>LPROD_GU</td>";
+					code += "<td>LPROD_NM</td>";
+					code += "</tr>";
+					
+					$.each(res, function(i, v) {
+						code += "<tr>";
+						code += "<td>" + v.lprod_id + "</td>";
+						code += "<td>" + v.lprod_gu + "</td>";
+						code += "<td>" + v.lprod_nm + "</td>";
+						code += "</tr>";
+					})
+					
+					code += "</table>";
+					
+					$('#result1').html(code);
+				},
+				error: function(xhr) {
+					alert("상태: " + xhr.status); // 200, 404, 500
+					// 200은 json형태 오류
+					// 500은 코딩 오류(eclipse 확인 필요)
+				},
+				dataType: 'json'
+			})
+			*/
+			
+			$.getJSON(
+					'/jqpro/1127/lprodList.jsp',	// url
+					// data값 		// data 생략 가능
+					function(res) {	// success
+						code = "<table border = '1'>";
+						code += "<tr>";
+						code += "<td>LPROD_ID</td>";
+						code += "<td>LPROD_GU</td>";
+						code += "<td>LPROD_NM</td>";
+						code += "</tr>";
+						
+						$.each(res, function(i, v) {
+							code += "<tr>";
+							code += "<td>" + v.lprod_id + "</td>";
+							code += "<td>" + v.lprod_gu + "</td>";
+							code += "<td>" + v.lprod_nm + "</td>";
+							code += "</tr>";
+						})
+						
+						code += "</table>";
+						
+						$('#result1').html(code);
+					} // success
+			) // getJSON
+		})
+	})
+</script>
+</head>
+<body>
+<div>
+	동기 실행<br><br>
+	<input type="button" value="LprodList" id="btn2">
+</div>
+
+<div>
+	비동기 실행 - table출력<br><br>
+	<input type="button" value="LprodList" id="btn1">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	비동기 실행 - select -option 실행<br><br>
+	- mvc패턴과 singleton을 이용<br><br>
+	<input type="button" value="LprodList" id="btn3">
+	<div id="result3" class="result">
+		<select id="lprod"></select>
+		<select id="prod"></select>
+	</div>
+	<div id="res3" class="result"></div>
+</div>
+</body>
+</html>

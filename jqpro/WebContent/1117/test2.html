@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<style>
+div {
+	height: auto;
+}
+</style>
+<script>
+	$(document).ready(function(){
+	// 	// id=btn1 검색
+	// 	vbtn = $('#btn1');
+
+	// 	// 클릭 이벤트
+	// 	vbtn.on('click', function(){
+	// 		res1 = $('#result1');
+	// 		res1.css('background', 'green');
+	// 	})
+
+		$('#btn1').on('click', function() {
+			$('#result1').css('background', 'red');
+		})
+
+		$('#result2 h2').on('click', function(){
+			// $(this) // jQuery변수
+			// $(this).hide();
+			$(this).css('display', 'none');
+
+			// this ==> dom변수	
+			// this.style.display = "none";
+		})
+
+		$('#btn3').on('click', function(){
+			//jQuery 
+			$('#result3 h2').css('color', 'red'); // 전체가 바뀜
+
+			//특정 한개의 요소만 선택
+			$('#result3 h2').eq(3).css('color', 'blue');
+
+			//----------------------------------
+			vres3 = document.querySelectorAll('#result3 h2');
+			// vres3.style.color = 'green'; // 오류
+
+			// 특정 한개만 선택
+			vres3[1].style.color = 'green';
+			
+			// 전체 선택 실행
+			for (i=0; i<vres3.length; i++) {
+				// vres3[i].style.color = 'red';
+				$(vres3[i]).css('color', 'green');
+			}
+
+		})
+	}) // ready function 끝
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="확인" id="btn1">
+	<br><br>
+	<div id="result1" class="result"></div>
+</div>
+
+<div>
+	<br>script에서 h2요소를 검색하여 click이벤트 지정<br>
+
+	<div id="result2" class="result">
+		<h2>클릭하면 으앙하고 웁니다.1</h2>
+		<h2>클릭하면 으앙하고 웁니다.2</h2>
+		<h2>클릭하면 으앙하고 웁니다.3</h2>
+		<h2>클릭하면 으앙하고 웁니다.4</h2>
+		<h2>클릭하면 으앙하고 웁니다.5</h2>
+		<h2>클릭하면 으앙하고 웁니다.6</h2>
+		<h2>클릭하면 으앙하고 웁니다.7</h2>
+		<h2>클릭하면 으앙하고 웁니다.8</h2>
+		<h2>클릭하면 으앙하고 웁니다.9</h2>
+		<h2>클릭하면 으앙하고 웁니다.10</h2>
+	</div>
+</div>
+
+<div>
+	<br>버튼 클릭시 script에서 모든 h2요소를 검색하여 스타일을 지정<br>
+	<input type="button" value="확인" id="btn3">
+	<div id="result3" class="result">
+		<h2>클릭하면 으앙하고 웁니다.1</h2>
+		<h2>클릭하면 으앙하고 웁니다.2</h2>
+		<h2>클릭하면 으앙하고 웁니다.3</h2>
+		<h2>클릭하면 으앙하고 웁니다.4</h2>
+		<h2>클릭하면 으앙하고 웁니다.5</h2>
+		<h2>클릭하면 으앙하고 웁니다.6</h2>
+		<h2>클릭하면 으앙하고 웁니다.7</h2>
+		<h2>클릭하면 으앙하고 웁니다.8</h2>
+		<h2>클릭하면 으앙하고 웁니다.9</h2>
+		<h2>클릭하면 으앙하고 웁니다.10</h2>
+	</div>
+</div>
+</body>
+</html>

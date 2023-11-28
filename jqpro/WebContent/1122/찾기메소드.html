@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<style>
+		div {
+			height: auto;
+		}
+
+		.ancestors * {
+			display: block;
+			border: 2px solid black;
+			color: black;
+			padding: 5px;
+			margin: 15px;
+		}
+	</style>
+	<script>
+		$( () => {
+
+			$('.but').on('click', function() {
+				vpa = $(this).parents('ul');
+
+				$(vpa).find('span').css('background', 'skyblue');
+				vtext = $(vpa).find('span').text();
+
+				// p태그 만들기
+				ptag = $('<p>' + vtext + '</p>');
+				$(this).parent().append(ptag);
+			})
+
+			$('#parent').on('click', () => {
+				$('span').parent().css('border', '2px solid red').css('color', 'red');
+			})
+			
+			$('#parents').on('click', () => {
+				$('span').parents().css('border', '2px solid blue').css('color', 'blue');
+			})
+
+			$('#parentsel').on('click', () => {
+				$('span').parents('ul').css('border', '2px solid green').css('color', 'green');
+			})
+
+			$('#parentsun').on('click', () => {
+				$('span').parentsUntil('#result1').css('border', '2px solid hotpink').css('color', 'hotpink');
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<div>
+		span을 기준으로 부모와 조상을 검색<br><br>
+		<input type="button" value="parent" id="parent">
+		<input type="button" value="parents" id="parents">
+		<input type="button" value="parents(sel)" id="parentsel">
+		<input type="button" value="parentsun" id="parentsun">
+		<br><br>
+		<div id="result1" class="result ancestors">
+			<div style="width:500px; background: lightgray;">div (great-grandparent)
+				<ul>ul (grandparent)
+					<li>li (direct parent)
+						<span>span</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="result2" class="result ancestors">
+		<div style="width:500px; background: lightgray;">div (great-grandparent)
+			<ul>ul (grandparent)
+				<li>li (direct parent)
+					<span>span200</span>
+				</li>
+				<li>
+					<button type="button" class="but">확인</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="result3" class="result ancestors">
+		<div style="width:500px; background: lightgray;">div (great-grandparent)
+			<ul>ul (grandparent)
+				<li>li (direct parent)
+					<span>span300</span>
+				</li>
+				<li>
+					<button type="button" class="but">확인</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

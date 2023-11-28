@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<style>
+		div {
+			height: auto;
+		}
+	</style>
+	<script>
+		proc1 = () => {
+			alert('hello');
+		}
+
+		$(document).ready(function(){
+			// // btn1 검색
+			// vbtn = document.getElementById('btn1');
+			// // vbtn.addEventListener('click', proc1);
+			// $(vbtn).on('click', function(){
+			// })
+
+			$('#btn1').on('click', function(){
+				// 폼 안에 있는 모든 요소 중 사용 가능한 요소
+				$('form *:enabled').css('border', '2px dotted red');
+				$('form *:disabled').css('border', '2px solid blue');
+
+				// 현재 선택된 select -option의 값을 가져온다.
+				alert($('form select option:selected').val());
+
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<div>
+		<br><br>
+		<input type="button" value="확인" id="btn1">
+		<br><br>
+		<div id="result1" class="result">
+			<form action="폼상태.jsp" method="post">
+				<input type="text" name="id" disabled value="001"><br>
+				<input type="hidden" name="pass" value="1234"><br>
+
+				<select name="disSelect">
+					<option>Option1</option>
+					<option selected>Option2</option>
+					<option>Option3</option>
+					<option>Option4</option>
+				</select>
+				<br>
+				<textarea name="enTextarea" rows=10 cols=20>text</textarea><br>
+				<input type="button" value="확인" onclick="alert('hello!!')"> <br>
+				<input type="submit" value="전송">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

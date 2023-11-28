@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css">
+	<script src="../js/jquery-3.7.1.min.js"></script>
+	<style>
+		div {
+			height: auto;
+		}
+	</style>
+	<script>
+
+		xhr = new XMLHttpRequest();
+
+		$(() => {
+
+			$('#btn2').on('click', () => {
+				// $.get(url, data, success, dataType);
+				/*
+				$.get(
+					"http://localhost/jqpro/1124/member.jsp",
+					function (res) { },	// success
+					"json"
+				)
+				*/
+
+				// $.getJSON( url, data, success)
+				$.getJSON(
+					"/jqpro/1124/member.jsp",
+					function (res) {
+						code = "<table border='1'>";
+						code += "<tr><td>아이디</td>";
+						code += "<td>이름</td>";
+						code += "<td>주소</td>";
+						code += "<td>전화번호</td>";
+						code += "<td>이메일</td></tr>";
+
+						$.each(res, (i, v) => {
+							code += "<tr><td>" + v.id + "</td>";
+							code += "<td>" + v.name + "</td>";
+							code += "<td>" + v.addr + "</td>";
+							code += "<td>" + v.tel + "</td>";
+							code += "<td>" + v.mail + "</td></tr>";
+						})
+						code += "</table>";
+
+						$('#result2').html(code);
+					},	// success 끝
+				)	// getJSON 끝
+
+				$.ajax({
+					url : "http://localhost/jqpro/1124/member.jsp",
+					type : "get",
+					success : function(res) {
+
+						code = "<table border='1'>";
+						code += "<tr><td>아이디</td>";
+						code += "<td>이름</td>";
+						code += "<td>주소</td>";
+						code += "<td>전화번호</td>";
+						code += "<td>이메일</td></tr>";
+
+						$.each(res, (i, v) => {
+							code += "<tr><td>" + v.id + "</td>";
+							code += "<td>" + v.name + "</td>";
+							code += "<td>" + v.addr + "</td>";
+							code += "<td>" + v.tel + "</td>";
+							code += "<td>" + v.mail + "</td></tr>";
+						})
+						code += "</table>";
+
+						$('#result2').html(code);
+					},
+					error : function(req) {
+						alert("상태: " + req.status); // 404, 500, 304, 200
+					},
+					dataType : "json"	// 파싱 오류 : 200
+				})
+			})
+
+			$('#btn1').on('click', () => {
+				// 요청
+				xhr.open("get", "member.jsp", true);
+				xhr.send();
+
+				// 응답
+				res = "";
+				code = "";
+				xhr.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+
+						res = JSON.parse(this.responseText);
+
+						code = "<table border='1'>";
+						code += "<tr><td>아이디</td>";
+						code += "<td>이름</td>";
+						code += "<td>주소</td>";
+						code += "<td>전화번호</td>";
+						code += "<td>이메일</td></tr>";
+
+						$.each(res, (i, v) => {
+							code += "<tr><td>" + v.id + "</td>";
+							code += "<td>" + v.name + "</td>";
+							code += "<td>" + v.addr + "</td>";
+							code += "<td>" + v.tel + "</td>";
+							code += "<td>" + v.mail + "</td></tr>";
+						})
+						code += "</table>";
+
+						$('#result1').html(code);
+					}
+				}
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+	<div>
+		범용 비동기<br><br>
+		<input type="button" value="memberList" id="btn1">
+		<br><br>
+		<div id="result1" class="result"></div>
+	</div>
+
+	<div>
+		jQuery를 이용한 비동기<br><br>
+		<input type="button" value="memberList" id="btn2">
+		<br><br>
+		<div id="result2" class="result"></div>
+	</div>
+</body>
+
+</html>

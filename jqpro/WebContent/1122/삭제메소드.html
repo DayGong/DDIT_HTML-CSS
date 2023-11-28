@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+div {
+	height: auto;
+}
+
+p {
+	background: yellow;
+	padding: 5px;
+}
+</style>
+<script>
+	$( () => {
+
+		$('.result').on('click', function() {
+			// $('p').remove();
+			// $('p').remove('.p1');
+			
+			// $('p'. this).remove('.p1');
+			// $('p', this).empty();
+			$('p', this).remove();
+		})
+
+		$('#rem').on('click', () => {
+			$('#result1').remove();
+		})
+
+		$('#emp').on('click', () => {
+			$('#result2').empty();
+		})
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<br><br>
+	<input type="button" value="remove" id="rem">
+	<input type="button" value="empty" id="emp">
+	<br><br>
+	<div id="result1" class="result">
+		<p class="p1">무궁화 꽃이 피었습니다.</p>
+		<p class="p1">무궁화 꽃이 피었습니다.</p>
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>
+
+	<div id="result2" class="result">
+		<p class="p1">이제 나만 믿어요.</p>
+		<p>이제 나만 믿어요.</p>
+		<p>이제 나만 믿어요.</p>
+	</div>
+</div>
+</body>
+</html>
