@@ -10,8 +10,29 @@
 
 <mapper namespace="member">
 
+	<!-- 전체 데이터 가져오기 -->
 	<select id="getAllMember" resultType="memVo">
 		 SELECT * FROM member
 	</select>
 
+	<!-- ID 중복 검사 -->
+	<select id="selectById" resultType="string" parameterType="String">
+		select mem_id from member where mem_id = #{mem_id}
+	</select>
+	
+	<!-- 저장하기 - 회원가입하기 -->
+	<insert id="insertMember" parameterType="memVo">
+		insert into member (mem_id, mem_pass, mem_name, 
+							mem_bir, mem_zip, mem_add1, 
+							mem_add2, mem_hp, mem_mail)
+		values (#{mem_id}, #{mem_pass}, #{mem_name},
+				#{mem_bir}, #{mem_zip}, #{mem_add1},
+				#{mem_add2}, #{mem_hp}, #{mem_mail})
+	</insert>
+	
+	<!-- 우편번호 찾기 -->
+	<select id="selectByDong" parameterType="String" resultType="zipVo">
+		select * from ziptb where dong like '%'||#{searchDong}||'%'
+	</select>
+	
 </mapper>

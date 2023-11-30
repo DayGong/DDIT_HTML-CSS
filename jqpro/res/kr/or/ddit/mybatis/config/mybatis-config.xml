@@ -21,6 +21,7 @@
 		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memVo"/>
 		<typeAlias type="kr.or.ddit.lprod.vo.LprodVO" alias="lprodVo"/>
 		<typeAlias type="kr.or.ddit.prod.vo.ProdVO" alias="prodVo"/>
+		<typeAlias type="kr.or.ddit.member.vo.ZipVO" alias="zipVo"/>
 	</typeAliases>
 
 	<!-- DB 연결을 위한 설정 -->
